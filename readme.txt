@@ -1,6 +1,6 @@
 === Addon Widgets For Elementor ===
 
-Contributors: WPDevHQ   
+Contributors: Contributors: themeisle, codeinwp
 Tags: elementor, pagebuilder, page builder, page builder template, page builder templates, woocommerce, template builder, builder templates   
 Requires at least: 4.4  
 Tested up to: 4.7.2  
@@ -25,12 +25,12 @@ Initial version contains 6(+2) widgets - more to come.
 * 8: New: EAW: Elementor Posts By Category
 	
 == Themes ==
-Minimal support is included for almost any theme therefore leaving most of the desing to be carried out in the themes themselves.   
-The plugin does however inherit some design spects of the current theme.
+Minimal support is included for almost any theme therefore leaving most of the design to be carried out in the themes themselves.
+The plugin does however inherit some design aspects of the current theme.
 
 If you are a theme author you are encouraged to test the plugin making necessary adjustments and providing design options where necessary.
 
-If you find any issues with your particula theme not playing nice with the templates please let us know so that we can do our best
+If you find any issues with your particular theme not playing nice with the templates please let us know so that we can do our best
 to accommodate you.
 
 == Installation ==
@@ -45,7 +45,7 @@ to accommodate you.
 
 == Frequently Asked Questions ==
 
-Why is it after draging the required widget, making the necessary adjustments to settings and save the layout goes all wonky?
+Why is it after dragging the required widget, making the necessary adjustments to settings and save the layout goes all wonky?
 
 There is a known bug/conflict with WooCommerce assets not being loaded upon saving the edits, however refreshing the page puts things back to normal.
 See this [issue #495](https://github.com/pojome/elementor/issues/495) for current status.
@@ -77,5 +77,3 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 
 = 1.0.0 =
 * Initial release.
-
-Copyright: WPDevHQ http://www.wpdevhq.com

@@ -2,11 +2,11 @@
 
 /*
  * Plugin Name: Addon Widgets Elementor
- * Plugin URI: https://wpdevhq.com/plugins/addon-widgets-for-elementor
- * Description: A helper plugin for users of Elementor Pagebuilder.
+ * Plugin URI: https://themeisle.com/
+ * Description: A helper plugin for users of Elementor Page Builder.
  * Version: 1.0.4
  * Author: ThemeIsle
- * Author URI: https://wpdevhq.com/
+ * Author URI: https://themeisle.com/
  * Requires at least:   4.4
  * Tested up to:        4.7.2
  */
