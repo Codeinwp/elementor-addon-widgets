@@ -1,10 +1,9 @@
 <?php
-
 /*
  * Plugin Name: Addon Widgets Elementor
  * Plugin URI: https://themeisle.com/
  * Description: A helper plugin for users of Elementor Page Builder.
- * Version: 1.0.4
+ * Version: 1.1.0
  * Author: ThemeIsle
  * Author URI: https://themeisle.com/
  * Requires at least:   4.4
@@ -18,7 +17,7 @@ if ( ! defined( 'WPINC' ) ) { die; }
 ------------------------------------------ */
 
 /* Set plugin version constant. */
-define( 'EA_VERSION', '1.0.4' );
+define( 'EA_VERSION', '1.1.0' );
 
 /* Set constant path to the plugin directory. */
 define( 'EA_PATH', trailingslashit( plugin_dir_path(__FILE__) ) );
@@ -60,4 +59,18 @@ function eaw_do_shortcode( $tag, array $atts = array(), $content = null ) {
 	}
 
 	return call_user_func( $shortcode_tags[ $tag ], $atts, $content, $tag );
+}
+
+add_filter( 'themeisle_sdk_products', 'elementor_addon_widgets_register_sdk', 10, 1 );
+
+/**
+ * Register SDK.
+ *
+ * @param $products
+ *
+ * @return array
+ */
+function elementor_addon_widgets_register_sdk( $products ) {
+	$products[] = __FILE__;
+	return $products;
 }
