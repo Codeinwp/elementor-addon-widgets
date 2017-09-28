@@ -4,11 +4,11 @@ module.exports = {
     fixDomains: {
         options: {
             textdomain: '<%= package.textdomain %>',
-            updateDomains: ['elementor']
+            updateDomains: ['eaw']
         },
         files: {
             src: [
-                './modules/branding/widgets/elementor-branding.php'
+                '**/*.php'
             ]
         }
     },

@@ -14,16 +14,18 @@
  */
 
 /* Do not access this file directly */
-if ( ! defined( 'WPINC' ) ) { die; }
+if ( ! defined( 'WPINC' ) ) {
+	die; }
 
-/* Constants
+/*
+ Constants
 ------------------------------------------ */
 
 /* Set plugin version constant. */
 define( 'EA_VERSION', '1.1.0' );
 
 /* Set constant path to the plugin directory. */
-define( 'EA_PATH', trailingslashit( plugin_dir_path(__FILE__) ) );
+define( 'EA_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 /* Set the constant path to the plugin directory URI. */
 define( 'EA_URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
@@ -36,10 +38,9 @@ require_once( EA_PATH . 'eaw-class.php' );
  */
 if ( ! function_exists( 'eaw_is_woocommerce_active' ) ) {
 
-    function eaw_is_woocommerce_active() {
-	    return class_exists( 'woocommerce' ) ? true : false;
-    }
-
+	function eaw_is_woocommerce_active() {
+		return class_exists( 'woocommerce' ) ? true : false;
+	}
 }
 
 /**
