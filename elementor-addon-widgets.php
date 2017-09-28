@@ -64,7 +64,11 @@ function eaw_do_shortcode( $tag, array $atts = array(), $content = null ) {
 	return call_user_func( $shortcode_tags[ $tag ], $atts, $content, $tag );
 }
 
-add_filter( 'themeisle_sdk_products', 'elementor_addon_widgets_register_sdk', 10, 1 );
+/* Require vendor file. */
+$vendor_file = plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+if ( is_readable( $vendor_file ) ) {
+	require_once $vendor_file;
+}
 
 /**
  * Register SDK.
@@ -77,3 +81,5 @@ function elementor_addon_widgets_register_sdk( $products ) {
 	$products[] = __FILE__;
 	return $products;
 }
+
+add_filter( 'themeisle_sdk_products', 'elementor_addon_widgets_register_sdk', 10, 1 );
