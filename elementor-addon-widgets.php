@@ -8,6 +8,9 @@
  * Author URI: https://themeisle.com/
  * Requires at least:   4.4
  * Tested up to:        4.7.2
+ *
+ * Requires License: no
+ * WordPress Available: yes
  */
 
 /* Do not access this file directly */
