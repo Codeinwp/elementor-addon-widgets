@@ -1,7 +1,7 @@
 # Elementor Addon Widgets
 
 
-**Contributors:** [WPDevHQ](http://www.wpdevhq.com)   
+**Contributors:** [ThemeIsle](http://www.themeisle.com) [CodeinWP](http://codeinwp.com)   
 **Tags:** elementor, pagebuilder, page builder, page builder template, page builder templates, woocommerce, template builder, builder templates   
 **Requires at least:** 4.4  
 **Tested up to:** 4.6.1  
