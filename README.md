@@ -19,18 +19,18 @@ Initial version contains 8 widgets - more to come.
 - 3: WooCommerce Best Selling Products   
 - 4: WooCommerce Featured Products   
 - 5: WooCommerce On Sale Products   
-- 6: WooComemrce Popular Products
+- 6: WooCommerce Popular Products
 
 - 7: New: EAW: Elementor Recent Posts
 - 8: New: EAW: Elementor Posts By Category
 	
 ## Themes ##
-Minimal support is included for almost any theme therefore leaving most of the desing to be carried out in the themes themselves.   
-The plugin does however inherit some design spects of the current theme.
+Minimal support is included for almost any theme therefore leaving most of the design to be carried out in the themes themselves.   
+The plugin does however inherit some design aspects of the current theme.
 
 If you are a theme author you are encouraged to test the plugin making necessary adjustments and providing design options where necessary.
 
-If you find any issues with your particula theme not playing nice with the templates please let us know so that we can do our best
+If you find any issues with your particular theme not playing nice with the templates please let us know so that we can do our best
 to accommodate you.
 
 ## Installation ##

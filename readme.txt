@@ -1,7 +1,7 @@
 === Addon Widgets For Elementor ===
 
 Contributors: Contributors: themeisle, codeinwp
-Tags: elementor, pagebuilder, page builder, page builder template, page builder templates, woocommerce, template builder, builder templates   
+Tags: elementor, pagebuilder, page builder, page builder template, page builder templates, woocommerce, template builder, builder templates
 Requires at least: 4.4  
 Tested up to: 4.7.2  
 License: GPLv3
@@ -18,7 +18,7 @@ Initial version contains 6(+2) widgets - more to come.
 * 3: WooCommerce Best Selling Products   
 * 4: WooCommerce Featured Products   
 * 5: WooCommerce On Sale Products   
-* 6: WooComemrce Popular Products
+* 6: WooCommerce Popular Products
 
 * 7: New: EAW: Elementor Recent Posts
 * 8: New: EAW: Elementor Posts By Category
