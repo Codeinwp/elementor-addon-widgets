@@ -5,7 +5,6 @@
 **Tags:** elementor, pagebuilder, page builder, page builder template, page builder templates, woocommerce, template builder, builder templates   
 **Requires at least:** 4.4  
 **Tested up to:** 4.6.1  
-**Stable tag:** 1.0.3  
 **License:** GPLv3  
 **License URI:** https://www.gnu.org/licenses/gpl-3.0.html   
 

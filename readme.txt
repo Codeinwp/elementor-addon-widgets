@@ -4,8 +4,7 @@ Contributors: Contributors: themeisle, codeinwp
 Tags: elementor, pagebuilder, page builder, page builder template, page builder templates, woocommerce, template builder, builder templates   
 Requires at least: 4.4  
 Tested up to: 4.7.2  
-Stable tag: 1.0.4  
-License: GPLv3  
+License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html   
 
 Adds Native Custom Wordpress Widgets that are specifically designed to be used in conjunction with the Elementor Page Builder
