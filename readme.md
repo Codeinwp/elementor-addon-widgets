@@ -1,9 +1,8 @@
 # Addon Widgets For Elementor #
-
 **Contributors:** [themeisle](https://profiles.wordpress.org/themeisle), [codeinwp](https://profiles.wordpress.org/codeinwp)  
 **Tags:** elementor, pagebuilder, page builder, page builder template, page builder templates, woocommerce, template builder, builder templates  
 **Requires at least:** 4.4    
-**Tested up to:** 4.8    
+**Tested up to:** 4.8  
 **License:** GPLv3  
 **License URI:** https://www.gnu.org/licenses/gpl-3.0.html     
 
@@ -60,6 +59,12 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 ## Changelog ##
+### 1.1.1 - 2017-10-11  ###
+
+* Updated title and description
+* Updated tested up to version 4.8
+
+
 ### 1.1.0 - 2017-09-29  ###
 
 * Travis trigger.
