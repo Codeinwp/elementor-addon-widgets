@@ -1,8 +1,8 @@
 <?php
 /*
- * Plugin Name: Addon Widgets Elementor
+ * Plugin Name: Elementor Addons & Widgets
  * Plugin URI: https://themeisle.com/
- * Description: A helper plugin for users of Elementor Page Builder.
+ * Description: Adds new Addons & Widgets that are specifically designed to be used in conjunction with the Elementor Page Builder.
  * Version: 1.1.0
  * Author: ThemeIsle
  * Author URI: https://themeisle.com/

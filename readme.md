@@ -3,7 +3,7 @@
 **Contributors:** [themeisle](https://profiles.wordpress.org/themeisle), [codeinwp](https://profiles.wordpress.org/codeinwp)  
 **Tags:** elementor, pagebuilder, page builder, page builder template, page builder templates, woocommerce, template builder, builder templates  
 **Requires at least:** 4.4    
-**Tested up to:** 4.7.2    
+**Tested up to:** 4.8    
 **License:** GPLv3  
 **License URI:** https://www.gnu.org/licenses/gpl-3.0.html     
 
