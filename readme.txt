@@ -57,6 +57,12 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 == Changelog ==
+= 1.1.1 - 2017-10-11  = 
+
+* Updated title and description
+* Updated tested up to version 4.8
+
+
 = 1.1.0 - 2017-09-29  = 
 
 * Travis trigger.
