@@ -1,16 +1,13 @@
-# Addon Widgets For Elementor #
-
+# Elementor Addons & Widgets #
 **Contributors:** [themeisle](https://profiles.wordpress.org/themeisle), [codeinwp](https://profiles.wordpress.org/codeinwp)  
 **Tags:** elementor, pagebuilder, page builder, page builder template, page builder templates, woocommerce, template builder, builder templates  
 **Requires at least:** 4.4    
-**Tested up to:** 4.8    
+**Tested up to:** 4.8  
 **License:** GPLv3  
 **License URI:** https://www.gnu.org/licenses/gpl-3.0.html     
 
-Adds Native Custom Wordpress Widgets that are specifically designed to be used in conjunction with the Elementor Page Builder
-
 ## Description ##
-Native WordPress widgets specifically designed for use with the [Elementor Page Builder](https://wordpress.org/plugins/elementor/)
+Adds new Addons & Widgets that are specifically designed to be used in conjunction with the [Elementor Page Builder](https://wordpress.org/plugins/elementor/).
 
 Initial version contains 6(+2) widgets - more to come.
 * 1: WooCommerce Product Categories
