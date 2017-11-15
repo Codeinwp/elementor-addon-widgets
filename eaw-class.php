@@ -55,10 +55,59 @@ class Elementor_Addon_Widgets {
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'eaw_styles' ), 999 );
 
+			add_action( 'elementor/init', array( $this, 'add_elementor_category' ) );
+
+			add_action( 'elementor/widgets/widgets_registered', array( $this, 'add_elementor_widgets' ) );
+
+			add_action( 'elementor/frontend/after_register_scripts', array( $this, 'enqueue_elementor' ) );
+
 	}
-	// public static function eaw_is_woocommerce_active() {
-	// return class_exists( 'woocommerce' ) ? true : false;
-	// }
+
+	/**
+	 * Add the Category for Orbit Fox Widgets.
+	 */
+	public function add_elementor_category() {
+		\Elementor\Plugin::instance()->elements_manager->add_category(
+			'eaw-elementor-widgets',
+			array(
+				'title' => __( 'EAW Widgets', 'themeisle-companion' ),
+				'icon'  => 'fa fa-plug',
+			),
+			1 );
+	}
+
+	/**
+	 * Require and instantiate Elementor Widgets.
+	 *
+	 * @param $widgets_manager
+	 */
+	public static function add_elementor_widgets( $widgets_manager ) {
+		$elementor_widgets = array(
+			'pricing-table',
+			'services',
+			'posts-grid',
+		);
+
+		foreach ( $elementor_widgets as $widget ) {
+			require_once EA_PATH . 'widgets/elementor/' . $widget . '.php';
+		}
+
+		// Pricing table
+		$widget = new Elementor\EAW_Elementor_Widget_Pricing_Table();
+		$widgets_manager->register_widget_type( $widget );
+		// Services
+		$widget = new Elementor\EAW_Elementor_Widget_Services();
+		$widgets_manager->register_widget_type( $widget );
+		// Posts grid
+		$widget = new Elementor\EAW_Elementor_Widget_Posts_Grid();
+		$widgets_manager->register_widget_type( $widget );
+	}
+
+	public function enqueue_elementor() {
+		// Add custom JS for grid.
+		wp_enqueue_script( 'obfx-grid-js', plugins_url ( '/widgets/elementor/js/obfx-grid.js', __FILE__ ), array(), '1.0', true );
+	}
+
 	/**
 	 * WooCommerce Widget section
 	 *
@@ -106,6 +155,7 @@ class Elementor_Addon_Widgets {
 	 */
 	public function eaw_styles() {
 		wp_enqueue_style( 'eaw-styles', plugins_url( '/css/eaw.css', __FILE__ ) );
+		wp_enqueue_style( 'eaw-elementor', plugins_url( '/widgets/elementor/css/public.css', __FILE__ ) );
 	}
 }
 add_action( 'plugins_loaded', array( 'Elementor_Addon_Widgets', 'get_instance' ) );
