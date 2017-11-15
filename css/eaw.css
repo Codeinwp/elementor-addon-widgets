@@ -8,8 +8,8 @@
 
 .elementor-widget-wp-widget-eaw-recent-posts h5,
 .elementor-widget-wp-widget-eaw-recent-posts-plus h5 {
-    font-size: 1.75rem;
-    line-height: 1.75;
+	font-size: 1.75rem;
+	line-height: 1.75;
 	text-align: center;
 }
 
@@ -39,26 +39,26 @@
 }
 
 @media screen and (max-width: 768px) {
-    .eaw-recent-posts {
-	    width: 48%;
-	    padding: 0;
-	    margin: 0 1%;
-    }
-	
+	.eaw-recent-posts {
+		width: 48%;
+		padding: 0;
+		margin: 0 1%;
+	}
+
 	.eaw-recent-posts img {
-	    height: 300px;
+		height: 300px;
 		margin: 0 auto;
-    }
+	}
 }
 
 @media screen and (max-width: 667px) {
-    .eaw-recent-posts {
-	    width: 100%;
-	    margin: 0;
-    }
-	
+	.eaw-recent-posts {
+		width: 100%;
+		margin: 0;
+	}
+
 	.eaw-recent-posts img {
-	    height: 300px;
+		height: 300px;
 		margin: 0 auto;
-    }
+	}
 }

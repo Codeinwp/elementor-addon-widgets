@@ -15,10 +15,11 @@
 
 /* Do not access this file directly */
 if ( ! defined( 'WPINC' ) ) {
-	die; }
+	die;
+}
 
 /*
- Constants
+Constants
 ------------------------------------------ */
 
 /* Set plugin version constant. */

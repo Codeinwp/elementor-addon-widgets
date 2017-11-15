@@ -73,7 +73,8 @@ class Elementor_Addon_Widgets {
 				'title' => __( 'EAW Widgets', 'themeisle-companion' ),
 				'icon'  => 'fa fa-plug',
 			),
-			1 );
+			1
+		);
 	}
 
 	/**
@@ -105,7 +106,7 @@ class Elementor_Addon_Widgets {
 
 	public function enqueue_elementor() {
 		// Add custom JS for grid.
-		wp_enqueue_script( 'obfx-grid-js', plugins_url ( '/widgets/elementor/js/obfx-grid.js', __FILE__ ), array(), '1.0', true );
+		wp_enqueue_script( 'obfx-grid-js', plugins_url( '/widgets/elementor/js/obfx-grid.js', __FILE__ ), array(), '1.0', true );
 	}
 
 	/**

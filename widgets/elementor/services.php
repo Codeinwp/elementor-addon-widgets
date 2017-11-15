@@ -105,11 +105,11 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 				],
 				'fields'      => [
 					[
-						'type'    => Controls_Manager::TEXT,
-						'name'    => 'title',
+						'type'        => Controls_Manager::TEXT,
+						'name'        => 'title',
 						'label_block' => true,
-						'label'   => __( 'Title & Description', 'themeisle-companion' ),
-						'default' => __( 'Service Title', 'themeisle-companion' ),
+						'label'       => __( 'Title & Description', 'themeisle-companion' ),
+						'default'     => __( 'Service Title', 'themeisle-companion' ),
 					],
 					[
 						'type'        => Controls_Manager::TEXTAREA,
@@ -134,7 +134,7 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 						'type'        => Controls_Manager::URL,
 						'name'        => 'link',
 						'label'       => __( 'Link to', 'themeisle-companion' ),
-						'separator' => 'before',
+						'separator'   => 'before',
 						'placeholder' => __( 'https://example.com', 'themeisle-companion' ),
 					],
 				],
@@ -145,25 +145,25 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 		$this->add_control(
 			'align',
 			[
-				'label'     => '<i class="fa fa-arrows"></i> ' . __( 'Icon Position', 'themeisle-companion' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
-					'left'   => [
+				'label'        => '<i class="fa fa-arrows"></i> ' . __( 'Icon Position', 'themeisle-companion' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'options'      => [
+					'left'  => [
 						'title' => __( 'Left', 'themeisle-companion' ),
 						'icon'  => 'fa fa-angle-left',
 					],
-					'top' => [
+					'top'   => [
 						'title' => __( 'Top', 'themeisle-companion' ),
 						'icon'  => 'fa fa-angle-up',
 					],
-					'right'  => [
+					'right' => [
 						'title' => __( 'Right', 'themeisle-companion' ),
 						'icon'  => 'fa fa-angle-right',
 					],
 				],
-				'default'   => 'top',
+				'default'      => 'top',
 				'prefix_class' => 'obfx-position-',
-				'toggle' => false,
+				'toggle'       => false,
 			]
 		);
 
@@ -202,12 +202,12 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 		$this->add_control(
 			'icon_space',
 			[
-				'label' => __( 'Spacing', 'themeisle-companion' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
+				'label'     => __( 'Spacing', 'themeisle-companion' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
 					'size' => 15,
 				],
-				'range' => [
+				'range'     => [
 					'px' => [
 						'min' => 0,
 						'max' => 300,
@@ -223,15 +223,15 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 		$this->add_control(
 			'icon_size',
 			[
-				'label' => __( 'Size', 'themeisle-companion' ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
+				'label'     => __( 'Size', 'themeisle-companion' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
 					'px' => [
 						'min' => 6,
 						'max' => 300,
 					],
 				],
-				'default' => [
+				'default'   => [
 					'size' => 35,
 				],
 				'selectors' => [
@@ -251,22 +251,22 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 		$this->add_responsive_control(
 			'text_align',
 			[
-				'label' => __( 'Alignment', 'themeisle-companion' ),
-				'type' => Controls_Manager::CHOOSE,
-				'toggle' => false,
-				'default' => 'center',
-				'options' => [
-					'left' => [
+				'label'     => __( 'Alignment', 'themeisle-companion' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'toggle'    => false,
+				'default'   => 'center',
+				'options'   => [
+					'left'   => [
 						'title' => __( 'Left', 'themeisle-companion' ),
-						'icon' => 'fa fa-align-left',
+						'icon'  => 'fa fa-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'themeisle-companion' ),
-						'icon' => 'fa fa-align-center',
+						'icon'  => 'fa fa-align-center',
 					],
-					'right' => [
+					'right'  => [
 						'title' => __( 'Right', 'themeisle-companion' ),
-						'icon' => 'fa fa-align-right',
+						'icon'  => 'fa fa-align-right',
 					],
 				],
 				'selectors' => [
@@ -279,8 +279,8 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 		$this->add_control(
 			'heading_title',
 			[
-				'label' => __( 'Title', 'themeisle-companion' ),
-				'type' => Controls_Manager::HEADING,
+				'label'     => __( 'Title', 'themeisle-companion' ),
+				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
 		);
@@ -288,9 +288,9 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 		$this->add_responsive_control(
 			'title_bottom_space',
 			[
-				'label' => __( 'Spacing', 'themeisle-companion' ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
+				'label'     => __( 'Spacing', 'themeisle-companion' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => [
 					'px' => [
 						'min' => 0,
 						'max' => 300,
@@ -305,9 +305,9 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label' => __( 'Color', 'themeisle-companion' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				'label'     => __( 'Color', 'themeisle-companion' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .obfx-service-title' => 'color: {{VALUE}};',
 				],
@@ -317,17 +317,17 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'title_typography',
+				'name'     => 'title_typography',
 				'selector' => '{{WRAPPER}} .obfx-service-title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
 		$this->add_control(
 			'heading_description',
 			[
-				'label' => __( 'Description', 'themeisle-companion' ),
-				'type' => Controls_Manager::HEADING,
+				'label'     => __( 'Description', 'themeisle-companion' ),
+				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
 		);
@@ -335,14 +335,14 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 		$this->add_control(
 			'description_color',
 			[
-				'label' => __( 'Color', 'themeisle-companion' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				'label'     => __( 'Color', 'themeisle-companion' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
 				'selectors' => [
 					'{{WRAPPER}} .obfx-service-text' => 'color: {{VALUE}};',
 				],
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
+				'scheme'    => [
+					'type'  => Scheme_Color::get_type(),
 					'value' => Scheme_Color::COLOR_3,
 				],
 			]
@@ -351,9 +351,9 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'description_typography',
+				'name'     => 'description_typography',
 				'selector' => '{{WRAPPER}} .obfx-service-text',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -490,8 +490,8 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 			$this->add_group_control(
 				Group_Control_Box_Shadow::get_type(),
 				[
-					'name'      => 'grid_items_box_shadow',
-					'selector'  => '{{WRAPPER}} .obfx-service-box',
+					'name'     => 'grid_items_box_shadow',
+					'selector' => '{{WRAPPER}} .obfx-service-box',
 				]
 			);
 
@@ -516,26 +516,26 @@ class EAW_Elementor_Widget_Services extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'      => 'grid_items_box_shadow_hover',
-				'selector'  => '{{WRAPPER}} .obfx-service-box:hover',
+				'name'     => 'grid_items_box_shadow_hover',
+				'selector' => '{{WRAPPER}} .obfx-service-box:hover',
 			]
 		);
 
 		$this->add_control(
 			'hover_transition',
 			[
-				'label'       => __( 'Transition Duration', 'themeisle-companion' ),
-				'type'        => Controls_Manager::SLIDER,
-				'default'     => [
+				'label'     => __( 'Transition Duration', 'themeisle-companion' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
 					'size' => 0.3,
 				],
-				'range'       => [
+				'range'     => [
 					'px' => [
 						'max'  => 3,
 						'step' => 0.1,
 					],
 				],
-				'selectors'   => [
+				'selectors' => [
 					'{{WRAPPER}} .obfx-service-box' => 'transition: all {{SIZE}}s ease;',
 				],
 			]

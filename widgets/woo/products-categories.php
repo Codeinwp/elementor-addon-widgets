@@ -9,8 +9,8 @@ class Woo_Product_Categories extends WP_Widget {
 
 	public function __construct() {
 		$widget_ops = array(
-			'classname' => 'woo_product_categories',
-			'description' => __( 'Woo Product Categories - designed for use with the Elementor Page Builder plugin', 'elementor-addon-widgets' ),
+			'classname'                   => 'woo_product_categories',
+			'description'                 => __( 'Woo Product Categories - designed for use with the Elementor Page Builder plugin', 'elementor-addon-widgets' ),
 			'customize_selective_refresh' => true,
 		);
 
@@ -66,11 +66,11 @@ class Woo_Product_Categories extends WP_Widget {
 
 		$args = apply_filters(
 			'eaw_product_categories_args', array(
-				'limit'             => $limit,
-				'columns'           => $columns,
-				'child_categories'  => 0,
-				'orderby'           => 'name',
-				'title'             => $title,
+				'limit'            => $limit,
+				'columns'          => $columns,
+				'child_categories' => 0,
+				'orderby'          => 'name',
+				'title'            => $title,
 			)
 		);
 
@@ -108,9 +108,9 @@ class Woo_Product_Categories extends WP_Widget {
 	}
 
 	public function update( $new_instance, $old_instance ) {
-		$instance = $old_instance;
-		$instance['title'] = strip_tags( $new_instance['title'] );
-		$instance['limit'] = (int) $new_instance['limit'];
+		$instance            = $old_instance;
+		$instance['title']   = strip_tags( $new_instance['title'] );
+		$instance['limit']   = (int) $new_instance['limit'];
 		$instance['columns'] = (int) ( $new_instance['columns'] );
 		$this->flush_widget_cache();
 
@@ -133,9 +133,9 @@ class Woo_Product_Categories extends WP_Widget {
 	 * @param array $instance
 	 */
 	public function form( $instance ) {
-		$title    = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
-		$limit    = isset( $instance['limit'] ) ? absint( $instance['limit'] ) : 3;
-		$columns  = isset( $instance['columns '] ) ? absint( $instance['columns '] ) : 3;
+		$title   = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
+		$limit   = isset( $instance['limit'] ) ? absint( $instance['limit'] ) : 3;
+		$columns = isset( $instance['columns '] ) ? absint( $instance['columns '] ) : 3;
 	?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'elementor-addon-widgets' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
