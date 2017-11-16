@@ -2,7 +2,7 @@
 Contributors: themeisle, codeinwp
 Tags: elementor, elementor addons, page builder template, page builder templates, woocommerce, template builder, builder templates
 Requires at least: 4.4  
-Tested up to: 4.8
+Tested up to: 4.9
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html   
 
@@ -16,12 +16,10 @@ Initial version contains 6(+2) widgets - more to come.
 * 4: WooCommerce Featured Products   
 * 5: WooCommerce On Sale Products   
 * 6: WooCommerce Popular Products
-
 * 7: New: EAW: Elementor Widget Recent Posts
 * 8: New: EAW: Elementor Posts By Category
 
 Elementor Native Widgets.
-
 * 9:  New: EAW Posts Grid
 * 10: New: EAW Pricing Table
 * 11: New: EAW Services
