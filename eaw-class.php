@@ -70,7 +70,7 @@ class Elementor_Addon_Widgets {
 		\Elementor\Plugin::instance()->elements_manager->add_category(
 			'eaw-elementor-widgets',
 			array(
-				'title' => __( 'EAW Widgets', 'themeisle-companion' ),
+				'title' => __( 'EAW Widgets', 'elementor-addon-widgets' ),
 				'icon'  => 'fa fa-plug',
 			),
 			1
