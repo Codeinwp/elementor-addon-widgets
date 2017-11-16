@@ -1,6 +1,6 @@
 # Elementor Addons & Widgets #
 **Contributors:** [themeisle](https://profiles.wordpress.org/themeisle), [codeinwp](https://profiles.wordpress.org/codeinwp)  
-**Tags:** elementor, pagebuilder, page builder, page builder template, page builder templates, woocommerce, template builder, builder templates  
+**Tags:** elementor, elementor addons, page builder template, page builder templates, woocommerce, template builder, builder templates  
 **Requires at least:** 4.4    
 **Tested up to:** 4.8  
 **License:** GPLv3  
@@ -17,9 +17,9 @@ Initial version contains 6(+2) widgets - more to come.
 * 5: WooCommerce On Sale Products   
 * 6: WooCommerce Popular Products
 
-* 7: New: EAW: Elementor Recent Posts
-* 8: New: EAW: Elementor Posts By Category
-	
+* 7: EAW: Elementor Recent Posts
+* 8: EAW: Elementor Posts By Category
+
 ## Themes ##
 Minimal support is included for almost any theme therefore leaving most of the design to be carried out in the themes themselves.
 The plugin does however inherit some design aspects of the current theme.
