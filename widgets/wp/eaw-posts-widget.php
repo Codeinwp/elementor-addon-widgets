@@ -9,8 +9,8 @@ class EAW_Recent_Posts extends WP_Widget {
 
 	public function __construct() {
 		$widget_ops = array(
-			'classname' => 'widget_recent_posts',
-			'description' => __( 'Recent posts with featured image - ideal for use with Elementor Page Builder plugin', 'elementor-addon-widgets' ),
+			'classname'                   => 'widget_recent_posts',
+			'description'                 => __( 'Recent posts with featured image - ideal for use with Elementor Page Builder plugin', 'elementor-addon-widgets' ),
 			'customize_selective_refresh' => true,
 		);
 
@@ -115,9 +115,9 @@ class EAW_Recent_Posts extends WP_Widget {
 	}
 
 	public function update( $new_instance, $old_instance ) {
-		$instance = $old_instance;
-		$instance['title'] = strip_tags( $new_instance['title'] );
-		$instance['number'] = (int) $new_instance['number'];
+		$instance                 = $old_instance;
+		$instance['title']        = strip_tags( $new_instance['title'] );
+		$instance['number']       = (int) $new_instance['number'];
 		$instance['excerptcount'] = (int) ( $new_instance['excerptcount'] );
 		$instance['show_excerpt'] = isset( $new_instance['show_excerpt'] ) ? (bool) $new_instance['show_excerpt'] : false;
 		$this->flush_widget_cache();
@@ -141,10 +141,10 @@ class EAW_Recent_Posts extends WP_Widget {
 	 * @param array $instance
 	 */
 	public function form( $instance ) {
-		$title         = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
-		$number        = isset( $instance['number'] ) ? absint( $instance['number'] ) : 3;
-		$excerptcount  = isset( $instance['excerptcount '] ) ? absint( $instance['excerptcount '] ) : 20;
-		$show_excerpt  = isset( $instance['show_excerpt'] ) ? (bool) $instance['show_excerpt'] : false;
+		$title        = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
+		$number       = isset( $instance['number'] ) ? absint( $instance['number'] ) : 3;
+		$excerptcount = isset( $instance['excerptcount '] ) ? absint( $instance['excerptcount '] ) : 20;
+		$show_excerpt = isset( $instance['show_excerpt'] ) ? (bool) $instance['show_excerpt'] : false;
 ?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'elementor-addon-widgets' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>

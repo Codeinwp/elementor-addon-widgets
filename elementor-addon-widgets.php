@@ -3,11 +3,11 @@
  * Plugin Name: Elementor Addons & Widgets
  * Plugin URI: https://themeisle.com/
  * Description: Adds new Addons & Widgets that are specifically designed to be used in conjunction with the Elementor Page Builder.
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: ThemeIsle
  * Author URI: https://themeisle.com/
  * Requires at least:   4.4
- * Tested up to:        4.8
+ * Tested up to:        4.9
  *
  * Requires License: no
  * WordPress Available: yes
@@ -15,14 +15,15 @@
 
 /* Do not access this file directly */
 if ( ! defined( 'WPINC' ) ) {
-	die; }
+	die;
+}
 
 /*
- Constants
+Constants
 ------------------------------------------ */
 
 /* Set plugin version constant. */
-define( 'EA_VERSION', '1.1.1' );
+define( 'EA_VERSION', '1.1.2' );
 
 /* Set constant path to the plugin directory. */
 define( 'EA_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
