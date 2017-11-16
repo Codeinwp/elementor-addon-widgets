@@ -61,6 +61,12 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 == Changelog ==
+= 1.1.2 - 2017-11-16  = 
+
+* Added three new Elementor native widgets.
+* Tested up to 4.9
+
+
 = 1.1.1 - 2017-10-11  = 
 
 * Updated title and description

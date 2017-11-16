@@ -21,14 +21,17 @@ Initial version contains 8 widgets - more to come.
 - 5: WooCommerce On Sale Products   
 - 6: WooCommerce Popular Products
 
-- 7: New: EAW: Elementor Recent Posts
-- 8: New: EAW: Elementor Posts By Category
-	
+- 7:  New: EAW: Elementor Recent Posts
+- 8:  New: EAW: Elementor Posts By Category
+- 9:  New: EAW Posts Grid
+- 10: New: EAW Pricing Table
+- 11: New: EAW Services
+
 ## Themes ##
 Minimal support is included for almost any theme therefore leaving most of the design to be carried out in the themes themselves.   
-The plugin does however inherit some design aspects of the current theme.
+Elementor Addons & Widgets does however inherit some design aspects of the current theme.
 
-If you are a theme author you are encouraged to test the plugin making necessary adjustments and providing design options where necessary.
+If you are a theme author you are encouraged to test the plugin making necessary adjustments and providing design options where necessary, there is a list of 20+ Best Elementor themes here: [here](https://www.codeinwp.com/blog/elementor-themes-templates/).
 
 If you find any issues with your particular theme not playing nice with the templates please let us know so that we can do our best
 to accommodate you.
@@ -53,6 +56,26 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 
 ## Changelog ##
 
+### 1.1.2 - 2017-11-16  ###
+* Added three new Elementor native widgets.
+* Tested up to 4.9
+
+
+### 1.1.1 - 2017-10-11  ###
+* Updated title and description
+* Updated tested up to version 4.8
+
+
+### 1.1.0 - 2017-09-29  ###
+* Travis trigger.
+* Added Themeisle SDK.
+* Added Continuous Integration.
+* Changed contributors.
+
+### 1.0.4 ###
+* Name change due to stipulation on Elementor's Terms and Conditions
+* Adjustments made to plugin and author urls
+
 ### 1.0.3 ###
 * FIXED: Fatal error clash with Storefront on checking if WooCommerce is active.
 
@@ -66,4 +89,3 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 ### 1.0.0 ###
 * Initial release.
 
-Copyright: WPDevHQ http://www.wpdevhq.com

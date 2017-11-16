@@ -1,4 +1,9 @@
 
+ ### v1.1.2 - 2017-11-16 
+ **Changes:** 
+ * Added three new Elementor native widgets.
+* Tested up to 4.9
+ 
  ### v1.1.1 - 2017-10-11 
  **Changes:** 
  * Updated title and description
