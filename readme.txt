@@ -61,6 +61,13 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 == Changelog ==
+= 1.1.4 - 2017-12-18  = 
+
+* Fixed Pricing Table Widget button link issue
+* Fixed Post Grid Widget notice.
+* Fixed Services Widget content align.
+
+
 = 1.1.3 - 2017-11-17  = 
 
 * Fixed javascript error on front end.

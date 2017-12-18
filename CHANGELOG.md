@@ -1,4 +1,10 @@
 
+ ### v1.1.4 - 2017-12-18 
+ **Changes:** 
+ * Fixed Pricing Table Widget button link issue
+* Fixed Post Grid Widget notice.
+* Fixed Services Widget content align.
+ 
  ### v1.1.3 - 2017-11-17 
  **Changes:** 
  * Fixed javascript error on front end.
