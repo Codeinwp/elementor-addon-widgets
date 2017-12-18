@@ -1,4 +1,8 @@
 
+ ### v1.1.3 - 2017-11-17 
+ **Changes:** 
+ * Fixed javascript error on front end.
+ 
  ### v1.1.2 - 2017-11-16 
  **Changes:** 
  * Added three new Elementor native widgets.
