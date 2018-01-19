@@ -129,27 +129,24 @@ class Woo_Best_Products extends WP_Widget {
 	public function form( $instance ) {
 		$title   = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 		$limit   = isset( $instance['limit'] ) ? absint( $instance['limit'] ) : 4;
-		$columns = isset( $instance['columns '] ) ? absint( $instance['columns '] ) : 4;
-		?>
+		$columns = isset( $instance['columns '] ) ? absint( $instance['columns '] ) : 4; ?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'elementor-addon-widgets' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
-				   name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>"/>
+			       name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>"/>
 		</p>
-
 		<p>
 			<label for="<?php echo $this->get_field_id( 'limit' ); ?>"><?php _e( 'Number of products to show:', 'elementor-addon-widgets' ); ?></label>
 			<input id="<?php echo $this->get_field_id( 'limit' ); ?>"
-				   name="<?php echo $this->get_field_name( 'limit' ); ?>" type="text" value="<?php echo $limit; ?>"
-				   size="3"/></p>
-
+			       name="<?php echo $this->get_field_name( 'limit' ); ?>" type="text" value="<?php echo $limit; ?>"
+			       size="3"/>
+		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'columns' ); ?>"><?php _e( 'Number of Columns:', 'elementor-addon-widgets' ); ?></label>
 			<input id="<?php echo $this->get_field_id( 'columns' ); ?>"
-				   name="<?php echo $this->get_field_name( 'columns' ); ?>" type="text" value="<?php echo $columns; ?>"
-				   size="3"/></p>
-
-
+			       name="<?php echo $this->get_field_name( 'columns' ); ?>" type="text" value="<?php echo $columns; ?>"
+			       size="3"/>
+		</p>
 		<?php
 	}
 }
