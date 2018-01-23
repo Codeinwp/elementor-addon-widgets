@@ -6,6 +6,7 @@ class Elementor_Addon_Widgets {
 	 * A reference to an instance of this class.
 	 */
 	private static $instance;
+
 	/**
 	 * Returns an instance of this class.
 	 */
@@ -28,7 +29,23 @@ class Elementor_Addon_Widgets {
 	private function __construct() {
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 		// load library
+		add_filter( 'elementor_extra_widgets_category_args', array( $this, 'filter_category_args' ) );
 		$this->load_composer_library();
+	}
+
+	/**
+	 * Adjust the modules category name
+	 *
+	 * @param $args
+	 *
+	 * @return array
+	 */
+	public function filter_category_args( $args ) {
+		return array(
+			'slug'  => 'eaw-elementor-widgets',
+			'title' => __( 'EAW Widgets', 'textdomain' ),
+			'icon'  => 'fa fa-plug',
+		);
 	}
 
 	/**
@@ -47,18 +64,6 @@ class Elementor_Addon_Widgets {
 		if ( class_exists( '\ThemeIsle\PageTemplatesDirectory' ) ) {
 			\ThemeIsle\PageTemplatesDirectory::instance();
 		}
-	}
-
-	/**
-	 * Returns an instance of this class.
-	 */
-	public static function get_instance() {
-
-		if ( null == self::$instance ) {
-			self::$instance = new Elementor_Addon_Widgets();
-		}
-
-		return self::$instance;
 	}
 
 	/**
