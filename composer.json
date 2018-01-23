@@ -17,7 +17,8 @@
   ],
   "type": "wordpress-plugin",
   "require": {
-    "codeinwp/themeisle-sdk": "master"
+    "codeinwp/themeisle-sdk": "master",
+    "codeinwp/templates-directory": "master"
   },
   "minimum-stability": "dev",
   "prefer-stable": true

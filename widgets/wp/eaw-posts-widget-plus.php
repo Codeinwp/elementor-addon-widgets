@@ -17,9 +17,9 @@ class EAW_Recent_Posts_Plus extends WP_Widget {
 		parent::__construct( 'eaw-recent-posts-plus', __( 'EAW: Elementor Posts By Category', 'elementor-addon-widgets' ), $widget_ops );
 		$this->alt_option_name = 'widget_recent_entries_plus';
 
-		add_action( 'save_post', array($this, 'flush_widget_cache') );
-		add_action( 'deleted_post', array($this, 'flush_widget_cache') );
-		add_action( 'switch_theme', array($this, 'flush_widget_cache') );
+		add_action( 'save_post', array( $this, 'flush_widget_cache' ) );
+		add_action( 'deleted_post', array( $this, 'flush_widget_cache' ) );
+		add_action( 'switch_theme', array( $this, 'flush_widget_cache' ) );
 	}
 
 	/**
@@ -84,24 +84,25 @@ class EAW_Recent_Posts_Plus extends WP_Widget {
 			}
 			while ( $eawp->have_posts() ) :
 				$eawp->the_post(); ?>
-					<div class="eaw-recent-posts">
-						<?php
-						if ( has_post_thumbnail() ) {
-							the_post_thumbnail( 'medium' );
-						}
-						?>
-							<div class="eaw-content">
-							<h3><a href="<?php the_permalink(); ?>"><?php get_the_title() ? the_title() : the_ID(); ?></a></h3>
-							<p>
+				<div class="eaw-recent-posts">
+					<?php
+					if ( has_post_thumbnail() ) {
+						the_post_thumbnail( 'medium' );
+					}
+					?>
+					<div class="eaw-content">
+						<h3><a href="<?php the_permalink(); ?>"><?php get_the_title() ? the_title() : the_ID(); ?></a>
+						</h3>
+						<p>
 							<?php
 							if ( $show_excerpt ) {
 								echo wp_trim_words( get_the_excerpt(), $excerptcount, ' &hellip;' );
 							}
-						?>
+							?>
 						</p>
-							</div>
 					</div>
-				<?php
+				</div>
+			<?php
 			endwhile;
 
 			echo $args['after_widget'];
@@ -151,40 +152,48 @@ class EAW_Recent_Posts_Plus extends WP_Widget {
 		$excerptcount = isset( $instance['excerptcount '] ) ? absint( $instance['excerptcount '] ) : 20;
 		$show_excerpt = isset( $instance['show_excerpt'] ) ? (bool) $instance['show_excerpt'] : false;
 		$category     = isset( $instance['category'] ) ? $instance['category'] : '';
-?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'elementor-addon-widgets' ); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
-
-		<p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:', 'elementor-addon-widgets' ); ?></label>
-		<input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" /></p>
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'elementor-addon-widgets' ); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
+				   name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>"/>
+		</p>
 
 		<p>
-			<label for="rpjc_widget_cat_recent_posts_category"><?php _e( 'Category', 'elementor-addon-widgets' ); ?>:</label>				
-			
-			<?php
+			<label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:', 'elementor-addon-widgets' ); ?></label>
+			<input id="<?php echo $this->get_field_id( 'number' ); ?>"
+				   name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>"
+				   size="3"/></p>
 
+		<p>
+			<label for="rpjc_widget_cat_recent_posts_category"><?php _e( 'Category', 'elementor-addon-widgets' ); ?>
+				:</label>
+
+			<?php
 			wp_dropdown_categories(
 				array(
-
 					'orderby'    => 'title',
 					'hide_empty' => false,
 					'name'       => $this->get_field_name( 'category' ),
 					'id'         => 'rpjc_widget_cat_recent_posts_category',
 					'class'      => 'widefat',
 					'selected'   => $category,
-
 				)
 			);
-
 			?>
-
 		</p>
-		
-		<p><input class="checkbox" type="checkbox" <?php checked( $show_excerpt ); ?> id="<?php echo $this->get_field_id( 'show_excerpt' ); ?>" name="<?php echo $this->get_field_name( 'show_excerpt' ); ?>" />
-		<label for="<?php echo $this->get_field_id( 'show_dexcerpt' ); ?>"><?php _e( 'Display post excerpt?', 'elementor-addon-widgets' ); ?></label></p>
-		
-		<p><label for="<?php echo $this->get_field_id( 'excerptcount' ); ?>"><?php _e( 'Excerpt length to show:', 'elementor-addon-widgets' ); ?></label>
-		<input id="<?php echo $this->get_field_id( 'excerptcount' ); ?>" name="<?php echo $this->get_field_name( 'excerptcount' ); ?>" type="text" value="<?php echo $excerptcount; ?>" size="3" /></p>
-<?php
+
+		<p><input class="checkbox" type="checkbox" <?php checked( $show_excerpt ); ?>
+				  id="<?php echo $this->get_field_id( 'show_excerpt' ); ?>"
+				  name="<?php echo $this->get_field_name( 'show_excerpt' ); ?>"/>
+			<label for="<?php echo $this->get_field_id( 'show_dexcerpt' ); ?>"><?php _e( 'Display post excerpt?', 'elementor-addon-widgets' ); ?></label>
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'excerptcount' ); ?>"><?php _e( 'Excerpt length to show:', 'elementor-addon-widgets' ); ?></label>
+			<input id="<?php echo $this->get_field_id( 'excerptcount' ); ?>"
+				   name="<?php echo $this->get_field_name( 'excerptcount' ); ?>" type="text"
+				   value="<?php echo $excerptcount; ?>" size="3"/></p>
+		<?php
 	}
 }

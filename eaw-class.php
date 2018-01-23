@@ -16,8 +16,7 @@ class Elementor_Addon_Widgets {
 			self::$instance = new Elementor_Addon_Widgets();
 		}
 
-			return self::$instance;
-
+		return self::$instance;
 	}
 
 	public function eaw_load_plugin_textdomain() {
@@ -47,20 +46,21 @@ class Elementor_Addon_Widgets {
 	 */
 	private function __construct() {
 
-			add_action( 'init', array( $this, 'eaw_load_plugin_textdomain' ) );
+		add_action( 'init', array( $this, 'eaw_load_plugin_textdomain' ) );
 
-			add_action( 'widgets_init', array( $this, 'eaw_addon_woo_widgets' ) );
+		add_action( 'init', array( $this, 'load_template_directory_library' ) );
 
-			add_action( 'widgets_init', array( $this, 'eaw_addon_posts_widgets' ) );
+		add_action( 'widgets_init', array( $this, 'eaw_addon_woo_widgets' ) );
 
-			add_action( 'wp_enqueue_scripts', array( $this, 'eaw_styles' ), 999 );
+		add_action( 'widgets_init', array( $this, 'eaw_addon_posts_widgets' ) );
 
-			add_action( 'elementor/init', array( $this, 'add_elementor_category' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'eaw_styles' ), 999 );
 
-			add_action( 'elementor/widgets/widgets_registered', array( $this, 'add_elementor_widgets' ) );
+		add_action( 'elementor/init', array( $this, 'add_elementor_category' ) );
 
-			add_action( 'elementor/frontend/after_register_scripts', array( $this, 'enqueue_elementor' ) );
+		add_action( 'elementor/widgets/widgets_registered', array( $this, 'add_elementor_widgets' ) );
 
+		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'enqueue_elementor' ) );
 	}
 
 	/**
@@ -157,6 +157,15 @@ class Elementor_Addon_Widgets {
 	public function eaw_styles() {
 		wp_enqueue_style( 'eaw-styles', plugins_url( '/css/eaw.css', __FILE__ ) );
 		wp_enqueue_style( 'eaw-elementor', plugins_url( '/widgets/elementor/css/public.css', __FILE__ ) );
+	}
+
+	/**
+	 * Call the Templates Directory library
+	 */
+	public function load_template_directory_library() {
+		if ( class_exists( '\ThemeIsle\PageTemplatesDirectory' ) ) {
+			\ThemeIsle\PageTemplatesDirectory::instance();
+		}
 	}
 }
 add_action( 'plugins_loaded', array( 'Elementor_Addon_Widgets', 'get_instance' ) );
