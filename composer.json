@@ -18,7 +18,8 @@
   "type": "wordpress-plugin",
   "require": {
     "codeinwp/elementor-extra-widgets": "master",
-    "codeinwp/themeisle-sdk": "master"
+    "codeinwp/themeisle-sdk": "master",
+    "codeinwp/templates-directory": "master"
   },
   "minimum-stability": "dev",
   "prefer-stable": true

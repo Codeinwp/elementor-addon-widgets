@@ -6,6 +6,17 @@ class Elementor_Addon_Widgets {
 	 * A reference to an instance of this class.
 	 */
 	private static $instance;
+	/**
+	 * Returns an instance of this class.
+	 */
+	public static function get_instance() {
+
+		if ( null == self::$instance ) {
+			self::$instance = new Elementor_Addon_Widgets();
+		}
+
+		return self::$instance;
+	}
 
 	public function load_plugin_textdomain() {
 		load_plugin_textdomain( 'elementor-addon-widgets' );
@@ -26,6 +37,15 @@ class Elementor_Addon_Widgets {
 	public function load_composer_library() {
 		if ( defined( 'ELEMENTOR_PATH' ) && class_exists( '\ThemeIsle\ElementorExtraWidgets' ) ) {
 			\ThemeIsle\ElementorExtraWidgets::instance();
+		}
+	}
+
+	/**
+	 * Call the Templates Directory library
+	 */
+	public function load_template_directory_library() {
+		if ( class_exists( '\ThemeIsle\PageTemplatesDirectory' ) ) {
+			\ThemeIsle\PageTemplatesDirectory::instance();
 		}
 	}
 
