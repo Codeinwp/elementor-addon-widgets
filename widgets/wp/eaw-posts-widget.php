@@ -84,7 +84,8 @@ class EAW_Recent_Posts extends WP_Widget {
 					<?php
 					if ( has_post_thumbnail() ) {
 						the_post_thumbnail( 'medium' );
-					} ?>
+					}
+					?>
 					<div class="eaw-content">
 						<h3><a href="<?php the_permalink(); ?>"><?php get_the_title() ? the_title() : the_ID(); ?></a>
 						</h3>
@@ -144,30 +145,31 @@ class EAW_Recent_Posts extends WP_Widget {
 		$title        = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 		$number       = isset( $instance['number'] ) ? absint( $instance['number'] ) : 3;
 		$excerptcount = isset( $instance['excerptcount '] ) ? absint( $instance['excerptcount '] ) : 20;
-		$show_excerpt = isset( $instance['show_excerpt'] ) ? (bool) $instance['show_excerpt'] : false; ?>
+		$show_excerpt = isset( $instance['show_excerpt'] ) ? (bool) $instance['show_excerpt'] : false;
+		?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'elementor-addon-widgets' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
-			       name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>"/>
+				   name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>"/>
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:', 'elementor-addon-widgets' ); ?></label>
 			<input id="<?php echo $this->get_field_id( 'number' ); ?>"
-			       name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>"
-			       size="3"/></p>
+				   name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>"
+				   size="3"/></p>
 
 		<p><input class="checkbox" type="checkbox" <?php checked( $show_excerpt ); ?>
-		          id="<?php echo $this->get_field_id( 'show_excerpt' ); ?>"
-		          name="<?php echo $this->get_field_name( 'show_excerpt' ); ?>"/>
+				  id="<?php echo $this->get_field_id( 'show_excerpt' ); ?>"
+				  name="<?php echo $this->get_field_name( 'show_excerpt' ); ?>"/>
 			<label for="<?php echo $this->get_field_id( 'show_dexcerpt' ); ?>"><?php _e( 'Display post excerpt?', 'elementor-addon-widgets' ); ?></label>
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'excerptcount' ); ?>"><?php _e( 'Excerpt length to show:', 'elementor-addon-widgets' ); ?></label>
 			<input id="<?php echo $this->get_field_id( 'excerptcount' ); ?>"
-			       name="<?php echo $this->get_field_name( 'excerptcount' ); ?>" type="text"
-			       value="<?php echo $excerptcount; ?>" size="3"/></p>
+				   name="<?php echo $this->get_field_name( 'excerptcount' ); ?>" type="text"
+				   value="<?php echo $excerptcount; ?>" size="3"/></p>
 		<?php
 	}
 }

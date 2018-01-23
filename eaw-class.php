@@ -162,7 +162,7 @@ class Elementor_Addon_Widgets {
 	/**
 	 * Call the Templates Directory library
 	 */
-	public function load_template_directory_library () {
+	public function load_template_directory_library() {
 		if ( class_exists( '\ThemeIsle\PageTemplatesDirectory' ) ) {
 			\ThemeIsle\PageTemplatesDirectory::instance();
 		}
