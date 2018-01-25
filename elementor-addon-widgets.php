@@ -39,6 +39,10 @@ require_once( EA_PATH . 'eaw-class.php' );
  */
 if ( ! function_exists( 'eaw_is_woocommerce_active' ) ) {
 
+	/**
+	 * @return bool
+	 * @deprecated use `class_exists( 'woocommerce' )`
+	 */
 	function eaw_is_woocommerce_active() {
 		return class_exists( 'woocommerce' ) ? true : false;
 	}

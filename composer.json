@@ -3,11 +3,11 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/Codeinwp/themeisle-sdk"
+      "url": "https://github.com/Codeinwp/elementor-addon-widgets"
     }
   ],
   "homepage": "https://themeisle.com/plugins/elementor-addon-widgets/",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "ThemeIsle Team",
@@ -17,6 +17,7 @@
   ],
   "type": "wordpress-plugin",
   "require": {
+    "codeinwp/elementor-extra-widgets": "master",
     "codeinwp/themeisle-sdk": "master",
     "codeinwp/templates-directory": "master"
   },
