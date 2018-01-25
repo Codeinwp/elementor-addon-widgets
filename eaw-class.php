@@ -43,7 +43,7 @@ class Elementor_Addon_Widgets {
 	public function filter_category_args( $args ) {
 		return array(
 			'slug'  => 'eaw-elementor-widgets',
-			'title' => __( 'EAW Widgets', 'textdomain' ),
+			'title' => __( 'EAW Widgets', 'elementor-addon-widgets' ),
 			'icon'  => 'fa fa-plug',
 		);
 	}
