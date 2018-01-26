@@ -28,6 +28,7 @@ class Elementor_Addon_Widgets {
 	 */
 	private function __construct() {
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
+		add_action( 'init', array( $this, 'load_template_directory_library' ) );
 		add_action( 'init', array( $this, 'load_content_forms' ) );
 		add_filter( 'elementor_extra_widgets_category_args', array( $this, 'filter_category_args' ) );
 		add_filter( 'content_forms_category_args', array( $this, 'filter_category_args' ) );
