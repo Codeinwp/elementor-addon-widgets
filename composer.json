@@ -18,6 +18,7 @@
   "type": "wordpress-plugin",
   "require": {
     "codeinwp/elementor-extra-widgets": "master",
+    "codeinwp/themeisle-content-forms": "master",
     "codeinwp/themeisle-sdk": "master",
     "codeinwp/templates-directory": "master"
   },

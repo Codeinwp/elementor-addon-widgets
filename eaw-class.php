@@ -28,8 +28,11 @@ class Elementor_Addon_Widgets {
 	 */
 	private function __construct() {
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
-		// load library
+		add_action( 'init', array( $this, 'load_content_forms' ) );
 		add_filter( 'elementor_extra_widgets_category_args', array( $this, 'filter_category_args' ) );
+		add_filter( 'content_forms_category_args', array( $this, 'filter_category_args' ) );
+
+		// load library
 		$this->load_composer_library();
 	}
 
@@ -63,6 +66,17 @@ class Elementor_Addon_Widgets {
 	public function load_template_directory_library() {
 		if ( class_exists( '\ThemeIsle\PageTemplatesDirectory' ) ) {
 			\ThemeIsle\PageTemplatesDirectory::instance();
+		}
+	}
+
+	/**
+	 * If the content-forms library is available we should make the forms available for elementor
+	 */
+	public function load_content_forms() {
+		if ( class_exists( '\ThemeIsle\ContentForms\ContactForm' ) ) {
+			\ThemeIsle\ContentForms\ContactForm::instance();
+			\ThemeIsle\ContentForms\NewsletterForm::instance();
+			\ThemeIsle\ContentForms\RegistrationForm::instance();
 		}
 	}
 
