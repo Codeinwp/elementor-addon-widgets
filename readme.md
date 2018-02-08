@@ -52,6 +52,41 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 
 
 ## Changelog ##
+### 1.1.4 - 2017-12-18  ###
+
+* Fixed Pricing Table Widget button link issue
+* Fixed Post Grid Widget notice.
+* Fixed Services Widget content align.
+
+
+### 1.1.3 - 2017-11-17  ###
+
+* Fixed javascript error on front end.
+
+
+### 1.1.2 - 2017-11-16  ###
+
+* Added three new Elementor native widgets.
+* Tested up to 4.9
+
+
+### 1.1.1 - 2017-10-11  ###
+
+* Updated title and description
+* Updated tested up to version 4.8
+
+
+### 1.1.0 - 2017-09-29  ###
+
+* Travis trigger.
+* Added Themeisle SDK.
+* Added Continuous Integration.
+* Changed contributors.
+
+
+### 1.0.4 ###
+* Name change due to stipulation on Elementor's Terms and Conditions
+* Adjustments made to plugin and author urls
 
 ### 1.0.3 ###
 * FIXED: Fatal error clash with Storefront on checking if WooCommerce is active.
