@@ -1,4 +1,10 @@
 
+ ### v1.1.5 - 2018-02-08 
+ **Changes:** 
+ * Added Template Directory [under Pages > Template Directory]
+* Added new Content Forms widgets
+* A more modular structure
+ 
  ### v1.1.4 - 2017-12-18 
  **Changes:** 
  * Fixed Pricing Table Widget button link issue
