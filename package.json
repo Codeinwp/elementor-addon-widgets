@@ -1,6 +1,6 @@
 {
   "name": "elementor-addon-widgets",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Elementor Addon Widgets",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
   "category": "plugins",
   "textdomain": "elementor-addon-widgets",
   "author": "ThemeIsle <friends@themeisle.com>",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "bugs": {
     "url": "https://github.com/Codeinwp/elementor-addon-widgets/issues"
   },
