@@ -1,34 +1,34 @@
-# Elementor Addon Widgets
-
-
-**Contributors:** [ThemeIsle](http://www.themeisle.com) [CodeinWP](http://codeinwp.com)   
-**Tags:** elementor, pagebuilder, page builder, page builder template, page builder templates, woocommerce, template builder, builder templates   
-**Requires at least:** 4.4  
-**Tested up to:** 4.6.1  
+# Elementor Addons & Widgets #
+**Contributors:** [themeisle](https://profiles.wordpress.org/themeisle), [codeinwp](https://profiles.wordpress.org/codeinwp)  
+**Tags:** elementor, elementor addons, page builder template, page builder templates, woocommerce, template builder, builder templates  
+**Requires at least:** 4.4    
+**Tested up to:** 4.9  
 **License:** GPLv3  
-**License URI:** https://www.gnu.org/licenses/gpl-3.0.html   
-
-Widgets that are specifically designed to be used in conjunction with the [Elementor Pagebuilder](https://github.com/pojome/elementor)
+**License URI:** https://www.gnu.org/licenses/gpl-3.0.html     
 
 ## Description ##
-Native WordPress widgets specifically designed for use with the Elementor Page Builder
+Adds new Addons & Widgets that are specifically designed to be used in conjunction with the [Elementor Page Builder](https://wordpress.org/plugins/elementor/).
 
-Initial version contains 8 widgets - more to come.
-- 1: WooCommerce Product Categories
-- 2: WooCommerce Recent Products   
-- 3: WooCommerce Best Selling Products   
-- 4: WooCommerce Featured Products   
-- 5: WooCommerce On Sale Products   
-- 6: WooCommerce Popular Products
+Initial version contains 6(+2) widgets - more to come.
+* 1: WooCommerce Product Categories
+* 2: WooCommerce Recent Products   
+* 3: WooCommerce Best Selling Products   
+* 4: WooCommerce Featured Products   
+* 5: WooCommerce On Sale Products   
+* 6: WooCommerce Popular Products
+* 7: New: EAW: Elementor Widget Recent Posts
+* 8: New: EAW: Elementor Posts By Category
 
-- 7: New: EAW: Elementor Recent Posts
-- 8: New: EAW: Elementor Posts By Category
+Elementor Native Widgets.
+* 9:  New: EAW Posts Grid
+* 10: New: EAW Pricing Table
+* 11: New: EAW Services
 	
 ## Themes ##
-Minimal support is included for almost any theme therefore leaving most of the design to be carried out in the themes themselves.   
-The plugin does however inherit some design aspects of the current theme.
+Minimal support is included for almost any theme therefore leaving most of the design to be carried out in the themes themselves.
+Elementor Addons & Widgets does however inherit some design aspects of the current theme.
 
-If you are a theme author you are encouraged to test the plugin making necessary adjustments and providing design options where necessary.
+If you are a theme author you are encouraged to test the plugin making necessary adjustments and providing design options where necessary, there is a list of 20+ Best Elementor themes here: [here](https://www.codeinwp.com/blog/elementor-themes-templates/).
 
 If you find any issues with your particular theme not playing nice with the templates please let us know so that we can do our best
 to accommodate you.
@@ -45,13 +45,29 @@ to accommodate you.
 
 ## Frequently Asked Questions ##
 
-**Why is it after draging the required widget, making the necessary adjustments to settings and save the layout goes all wonky?**
+Why is it after dragging the required widget, making the necessary adjustments to settings and save the layout goes all wonky?
 
 There is a known bug/conflict with WooCommerce assets not being loaded upon saving the edits, however refreshing the page puts things back to normal.
 See this [issue #495](https://github.com/pojome/elementor/issues/495) for current status.
 
+## Screenshots ##
+
+1. Widgets Panel
+
+2. Editor View
+
+3. Frontend View Products And Posts
+
+4. Frontend view posts with custom title.
 
 ## Changelog ##
+### 1.1.5 - 2018-02-08  ###
+
+* Added Template Directory [under Pages > Template Directory]
+* Added new Content Forms widgets
+* A more modular structure
+
+
 ### 1.1.4 - 2017-12-18  ###
 
 * Fixed Pricing Table Widget button link issue
@@ -100,5 +116,3 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 
 ### 1.0.0 ###
 * Initial release.
-
-Copyright: WPDevHQ http://www.wpdevhq.com

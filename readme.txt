@@ -61,6 +61,13 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 == Changelog ==
+= 1.1.5 - 2018-02-08  = 
+
+* Added Template Directory [under Pages > Template Directory]
+* Added new Content Forms widgets
+* A more modular structure
+
+
 = 1.1.4 - 2017-12-18  = 
 
 * Fixed Pricing Table Widget button link issue
