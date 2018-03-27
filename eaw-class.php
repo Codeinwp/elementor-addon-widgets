@@ -30,11 +30,83 @@ class Elementor_Addon_Widgets {
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 		add_action( 'init', array( $this, 'load_template_directory_library' ) );
 		add_action( 'init', array( $this, 'load_content_forms' ) );
+
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+
+		add_filter( 'admin_menu', array( $this, 'admin_pages' ) );
+
 		add_filter( 'elementor_extra_widgets_category_args', array( $this, 'filter_category_args' ) );
 		add_filter( 'content_forms_category_args', array( $this, 'filter_category_args' ) );
 
+		add_filter( 'template_directory_templates_list', array( $this, 'filter_templates_preview' ) );
+		add_filter( 'eaw_should_load_placeholders', '__return_true' );
+
+		add_filter( 'obfx_template_dir_page_slug', array( $this, 'template_directory_page_slug' ) );
+		add_filter( 'obfx_template_dir_page_title', array( $this, 'template_directory_title' ) );
+
 		// load library
 		$this->load_composer_library();
+	}
+
+	public function enqueue_scripts() {
+		$current_screen = get_current_screen();
+		if ( $current_screen->id === 'sizzify_page_sizzify_more_features' || $current_screen->id === 'toplevel_page_sizzify-admin' ) {
+			wp_enqueue_style(  'sizzify-admin-style', EA_URI . 'assets/css/admin.css', array(), EA_VERSION );
+		}
+	}
+
+	/**
+	 * Change template directory title.
+	 *
+	 * @return string
+	 */
+	public function template_directory_title() {
+		return __( 'Sizzify Template Directory', 'elementor-addon-widgets' );
+	}
+
+	/**
+	 * Change template directory page slug.
+	 *
+	 * @return string
+	 */
+	public function template_directory_page_slug() {
+		return 'sizzify_template_dir';
+	}
+
+	/**
+	 *
+	 *  Add page to the dashbord menu
+	 *
+	 * @since 1.0.0
+	 */
+	public function admin_pages() {
+
+		add_menu_page(
+			'Sizzify', 'Sizzify', 'manage_options', 'sizzify-admin', array(
+			$this,
+			'render_main_page',
+		), 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTMuMTcgMTU4LjUiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOiNmMmYyZjI7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5Bc3NldCA4PC90aXRsZT48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTg1LjcyIiBjeT0iMTguNjgiIHI9IjcuNDUiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTUyLjk5IiBjeT0iMTkuNjYiIHI9IjUuMTgiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTYxLjk5IiBjeT0iNTUuMDYiIHI9IjEzIi8+PGNpcmNsZSBjbGFzcz0iYSIgY3g9IjE2OC4zNCIgY3k9IjkuOTgiIHI9IjUuMDQiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTUwLjUxIiBjeT0iMyIgcj0iMyIvPjxjaXJjbGUgY2xhc3M9ImEiIGN4PSIxNTguNTEiIGN5PSIzNCIgcj0iMyIvPjxjaXJjbGUgY2xhc3M9ImEiIGN4PSIxNDQuMTYiIGN5PSIzNi45MyIgcj0iNiIvPjxjaXJjbGUgY2xhc3M9ImEiIGN4PSIxODMuNSIgY3k9IjQwLjM2IiByPSI3LjUiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTY4LjQ3IiBjeT0iMjkuODMiIHI9IjQiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTM2LjI4IiBjeT0iMTYuNzYiIHI9IjYuODkiLz48cGF0aCBjbGFzcz0iYSIgZD0iTTEyNS42NywxMTAuNjZhNDEuNjUsNDEuNjUsMCwwLDEtNy41LDI0LjIycS03LjUsMTAuODUtMjIuNCwxNy4yM1Q1OS41OSwxNTguNWExNTAuNywxNTAuNywwLDAsMS0yMC4zNi0xLjM4LDgsOCwwLDEsMC0xNC41MS00LjY0LDguMjQsOC4yNCwwLDAsMCwuMjYsMkExMTEuNCwxMTEuNCwwLDAsMSw3LjY5LDE0OSw2LDYsMCwwLDAsLjExLDEzOS43YTcuNzgsNy43OCwwLDAsMSwuNjQtMi41NWw5LTIwLjMzYTgsOCwwLDAsMSw4LjE2LTQuNzIsOCw4LDAsMSwwLDEyLjgyLDYuMzgsNy43Miw3LjcyLDAsMCwwLS4xOC0xLjY4YzEuNzQuNTksMy41MSwxLjE1LDUuMzMsMS42N0E4OC45Miw4OC45MiwwLDAsMCw2MCwxMjJxOS45MywwLDE0LjE5LTEuOTJjMi44NC0xLjI5LDQuMjYtMy4yMSw0LjI2LTUuNzhxMC00LjQ1LTUuNTctNi42OXQtMTguMzUtNC44NmEyMDkuNTMsMjA5LjUzLDAsMCwxLTI3LjM2LTcuNGwtMS4yNy0uNUExMywxMywwLDAsMCw2LjczLDgwLjcyUTAsNzIsMCw1OEE0Myw0MywwLDAsMSwyLDQ0Ljc3LDgsOCwwLDAsMCw4LjIyLDM3YTguMDYsOC4wNiwwLDAsMC0uNzMtMy4zM2gwQTQ1LjU1LDQ1LjU1LDAsMCwxLDIyLjY1LDIwYTcuNDksNy40OSwwLDAsMCwxMi41Ny01LjUydjBxMTMuMjQtNC4zMSwzMC44NS00LjMzYTEzMS43NywxMzEuNzcsMCwwLDEsMjguNjksMy4xNEE5Ny45MSw5Ny45MSwwLDAsMSwxMTIuNiwxOWE4LDgsMCwwLDEsNC4xMiwxMC4zOGwtOC4zMywyMC4wOGE4LDgsMCwwLDEtMTAuNDYsNC4zMlE4MSw0Ni42MSw2NS42Nyw0Ni42MXEtMTguNDUsMC0xOC40NSw4LjkyLDAsNC4yNiw1LjQ4LDYuMzl0MTgsNC41NmExODMuOTMsMTgzLjkzLDAsMCwxLDI3LjM2LDcsNDcuNTgsNDcuNTgsMCwwLDEsMTkuMzYsMTIuODdRMTI1LjY3LDk1LjI3LDEyNS42NywxMTAuNjZaTTYxLjcyLDE1NS40OGEzLDMsMCwxLDAtMywzQTMsMywwLDAsMCw2MS43MiwxNTUuNDhabS02LTI2YTQsNCwwLDEsMC00LDRBNCw0LDAsMCwwLDU1LjcyLDEyOS40OFptLTE0LjUtNzRBMTAuNSwxMC41LDAsMSwwLDMwLjcyLDY2LDEwLjUsMTAuNSwwLDAsMCw0MS4yMiw1NS40OFoiLz48cGF0aCBjbGFzcz0iYSIgZD0iTTE2MS4zNSw3NkEyMywyMywwLDAsMSwxNDIuMSw2NS41NmEyLDIsMCwwLDAtMy42NiwxLjExdjgwLjU4YTgsOCwwLDAsMCw4LDhoMjkuODFhOCw4LDAsMCwwLDgtOFY2Ni42N2EyLDIsMCwwLDAtMy42NS0xLjExQTIzLDIzLDAsMCwxLDE2MS4zNSw3NloiLz48L3N2Zz4=',
+			'76'
+		);
+		remove_submenu_page('sizzify-admin', 'sizzify-admin');
+		if ( ! defined( 'EAW_PRO_URL' ) ) {
+			add_submenu_page(
+				'sizzify-admin', __( 'Sizzify', 'eaw-premium' ), __( 'More Features', 'eaw-premium' ) . '<span class="dashicons 
+		dashicons-star-filled more-features-icon" style="width: 17px;height: 17px; margin-left: 4px; color: #ffca54;font-size: 17px;vertical-align: -3px;"></span>', 'manage_options', 'sizzify_more_features',
+				array(
+					$this,
+					'render_upsell',
+				)
+			);
+		}
+	}
+
+	public function render_main_page() {
+		include_once EA_PATH . 'admin/partials/main.php';
+	}
+
+	public function render_upsell() {
+		include_once EA_PATH . 'admin/partials/upsell.php';
 	}
 
 	/**
@@ -47,10 +119,60 @@ class Elementor_Addon_Widgets {
 	public function filter_category_args( $args ) {
 		return array(
 			'slug'  => 'eaw-elementor-widgets',
-			'title' => __( 'EAW Widgets', 'elementor-addon-widgets' ),
+			'title' => __( 'Sizzify Widgets', 'elementor-addon-widgets' ),
 			'icon'  => 'fa fa-plug',
 		);
 	}
+
+	/**
+	 * Filter Template Previews
+	 *
+	 * @param $templates
+	 *
+	 * @return array
+	 */
+	public function filter_templates_preview( $templates ) {
+		$screen = get_current_screen();
+		if ( $screen->id !== 'sizzify_page_sizzify_template_dir' ) {
+			return $templates;
+		}
+
+		$placeholders       = array(
+//			'mocha-elementor2' => array(
+//				'title'       => __( 'Mocha - Landing Page', 'textdomain' ),
+//				'description' => __( 'An elegant and modern template for cafes and pubs, where you can display your menu in a mouth-watering way. Call to action, blog posts, attractive images, tabbed menus, and a catchy design will help you convince more people to stop by.', 'textdomain' ),
+//				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/mocha-elementor/',
+//				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
+//				'has_badge'   => __( 'Pro', 'textdomain' ),
+//			),
+//			'mocha-elementor3' => array(
+//				'title'       => __( 'Mocha - Landing Page', 'textdomain' ),
+//				'description' => __( 'An elegant and modern template for cafes and pubs, where you can display your menu in a mouth-watering way. Call to action, blog posts, attractive images, tabbed menus, and a catchy design will help you convince more people to stop by.', 'textdomain' ),
+//				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/mocha-elementor/',
+//				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
+//				'has_badge'   => __( 'Pro', 'textdomain' ),
+//
+//			),
+//			'mocha-elementor4' => array(
+//				'title'       => __( 'Mocha - Landing Page', 'textdomain' ),
+//				'description' => __( 'An elegant and modern template for cafes and pubs, where you can display your menu in a mouth-watering way. Call to action, blog posts, attractive images, tabbed menus, and a catchy design will help you convince more people to stop by.', 'textdomain' ),
+//				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/mocha-elementor/',
+//				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
+//				'has_badge'   => __( 'Pro', 'textdomain' ),
+//			),
+//			'mocha-elementor5' => array(
+//				'title'       => __( 'Mocha - Landing Page', 'textdomain' ),
+//				'description' => __( 'An elegant and modern template for cafes and pubs, where you can display your menu in a mouth-watering way. Call to action, blog posts, attractive images, tabbed menus, and a catchy design will help you convince more people to stop by.', 'textdomain' ),
+//				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/mocha-elementor/',
+//				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
+//				'has_badge'   => __( 'Pro', 'textdomain' ),
+//			),
+		);
+		$filtered_templates = array_merge( $templates, $placeholders );
+
+		return $filtered_templates;
+	}
+
 
 	/**
 	 * Load the Composer library with the base feature
