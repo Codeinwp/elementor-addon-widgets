@@ -29,6 +29,7 @@ install:
 script:
 - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then  grunt travis; fi;
 before_deploy:
+- openssl aes-256-cbc -K $encrypted_dbc7bb297cf9_key -iv $encrypted_dbc7bb297cf9_iv -in key.enc -out key -d
 - chmod +x bin/prepare-deploy.sh
 - ". ./bin/prepare-deploy.sh"
 deploy:
