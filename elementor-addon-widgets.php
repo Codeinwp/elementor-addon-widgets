@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: Elementor Addons & Widgets
+ * Plugin Name: Sizzify - Elementor Addons & Templates Lite
  * Plugin URI: https://themeisle.com/
  * Description: Adds new Addons & Widgets that are specifically designed to be used in conjunction with the Elementor Page Builder.
  * Version: 1.1.5
@@ -30,6 +30,9 @@ define( 'EA_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 /* Set the constant path to the plugin directory URI. */
 define( 'EA_URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
+
+define( 'SIZZIFY_UPSELL_LINK', 'https://themeisle.com/plugins/sizzify-elementor-addons-templates/' );
+
 
 /* ElemenTemplater Class */
 require_once( EA_PATH . 'eaw-class.php' );

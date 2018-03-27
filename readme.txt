@@ -1,4 +1,4 @@
-=== Elementor Addons & Widgets ===
+=== Sizzify - Elementor Addons & Templates Lite ===
 Contributors: themeisle, codeinwp
 Tags: elementor, elementor addons, page builder template, page builder templates, woocommerce, template builder, builder templates
 Requires at least: 4.4  
