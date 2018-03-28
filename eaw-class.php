@@ -138,40 +138,55 @@ class Elementor_Addon_Widgets {
 		}
 
 		$placeholders       = array(
-//			'mocha-elementor2' => array(
-//				'title'       => __( 'Mocha - Landing Page', 'textdomain' ),
-//				'description' => __( 'An elegant and modern template for cafes and pubs, where you can display your menu in a mouth-watering way. Call to action, blog posts, attractive images, tabbed menus, and a catchy design will help you convince more people to stop by.', 'textdomain' ),
-//				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/mocha-elementor/',
-//				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
-//				'has_badge'   => __( 'Pro', 'textdomain' ),
-//			),
-//			'mocha-elementor3' => array(
-//				'title'       => __( 'Mocha - Landing Page', 'textdomain' ),
-//				'description' => __( 'An elegant and modern template for cafes and pubs, where you can display your menu in a mouth-watering way. Call to action, blog posts, attractive images, tabbed menus, and a catchy design will help you convince more people to stop by.', 'textdomain' ),
-//				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/mocha-elementor/',
-//				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
-//				'has_badge'   => __( 'Pro', 'textdomain' ),
-//
-//			),
-//			'mocha-elementor4' => array(
-//				'title'       => __( 'Mocha - Landing Page', 'textdomain' ),
-//				'description' => __( 'An elegant and modern template for cafes and pubs, where you can display your menu in a mouth-watering way. Call to action, blog posts, attractive images, tabbed menus, and a catchy design will help you convince more people to stop by.', 'textdomain' ),
-//				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/mocha-elementor/',
-//				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
-//				'has_badge'   => __( 'Pro', 'textdomain' ),
-//			),
-//			'mocha-elementor5' => array(
-//				'title'       => __( 'Mocha - Landing Page', 'textdomain' ),
-//				'description' => __( 'An elegant and modern template for cafes and pubs, where you can display your menu in a mouth-watering way. Call to action, blog posts, attractive images, tabbed menus, and a catchy design will help you convince more people to stop by.', 'textdomain' ),
-//				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/mocha-elementor/',
-//				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
-//				'has_badge'   => __( 'Pro', 'textdomain' ),
-//			),
+			'hive-landing' => array(
+				'title'       => __( 'Hive - Landing Page', 'elementor-addon-widgets' ),
+				'description' => __( 'Description Will go Here.', 'elementor-addon-widgets' ),
+				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/hive-landing-page/',
+				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
+				'has_badge'   => __( 'Pro', 'elementor-addon-widgets' ),
+			),
+			'hive-about' => array(
+				'title'       => __( 'Hive - About Page', 'elementor-addon-widgets' ),
+				'description' => __( 'Description Will go Here.', 'elementor-addon-widgets' ),
+				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/hive-about/',
+				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
+				'has_badge'   => __( 'Pro', 'elementor-addon-widgets' ),
+			),
+			'sine-landing' => array(
+				'title'       => __( 'Sine - Landing Page', 'elementor-addon-widgets' ),
+				'description' => __( 'Description Will go Here.', 'elementor-addon-widgets' ),
+				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/sine-landing-page/',
+				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
+				'has_badge'   => __( 'Pro', 'elementor-addon-widgets' ),
+			),
+			'square-landing' => array(
+				'title'       => __( 'Square - Landing Page', 'elementor-addon-widgets' ),
+				'description' => __( 'Description Will go Here.', 'elementor-addon-widgets' ),
+				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/square-landing-page/',
+				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
+				'has_badge'   => __( 'Pro', 'elementor-addon-widgets' ),
+			),
+			'tekt-landing' => array(
+				'title'       => __( 'Tekt - Landing Page', 'elementor-addon-widgets' ),
+				'description' => __( 'Description Will go Here.', 'elementor-addon-widgets' ),
+				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/tekt-landing-page/',
+				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
+				'has_badge'   => __( 'Pro', 'elementor-addon-widgets' ),
+			),
+			'tekt-about' => array(
+				'title'       => __( 'Tekt - About Page', 'elementor-addon-widgets' ),
+				'description' => __( 'Description Will go Here.', 'elementor-addon-widgets' ),
+				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/tekt-about-page/',
+				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/mocha-elementor/screenshot.png' ),
+				'has_badge'   => __( 'Pro', 'elementor-addon-widgets' ),
+			),
 		);
 		$filtered_templates = array_merge( $templates, $placeholders );
 
 		return $filtered_templates;
 	}
+
+
 
 
 	/**
