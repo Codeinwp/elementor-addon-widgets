@@ -1,4 +1,8 @@
 
+ ### v1.1.7 - 2018-03-29 
+ **Changes:** 
+ * Development
+ 
  ### v1.1.6 - 2018-03-29 
  **Changes:** 
  * Rebranded plugin to Sizzify
