@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: Sizzify - Elementor Addons & Templates Lite
+ * Plugin Name: Elementor Addons & Templates - Sizzify Lite
  * Plugin URI: https://themeisle.com/
  * Description: Adds new Addons & Widgets that are specifically designed to be used in conjunction with the Elementor Page Builder.
  * Version: 1.1.6
