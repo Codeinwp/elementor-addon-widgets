@@ -1,11 +1,5 @@
 {
   "name": "codeinwp/elementor-addon-widgets",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/Codeinwp/elementor-addon-widgets"
-    }
-  ],
   "homepage": "https://themeisle.com/plugins/elementor-addon-widgets/",
   "license": "GPL-2.0-or-later",
   "authors": [
