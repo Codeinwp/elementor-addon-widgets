@@ -31,7 +31,7 @@ define( 'EA_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 /* Set the constant path to the plugin directory URI. */
 define( 'EA_URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 
-define( 'SIZZIFY_UPSELL_LINK', 'https://themeisle.com/plugins/sizzify-elementor-addons-templates/' );
+define( 'SIZZIFY_UPSELL_LINK', 'https://themeisle.com/plugins/sizzify-elementor-addons-templates' );
 
 
 /* ElemenTemplater Class */
