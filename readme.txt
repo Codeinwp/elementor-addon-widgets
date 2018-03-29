@@ -61,6 +61,13 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 == Changelog ==
+= 1.2.0 - 2018-03-29  = 
+
+* Adds support for the premium version.
+* Adds automatic page templates synchronization.
+* Adds support for future extra-widgets and add-ons.
+
+
 = 1.1.7 - 2018-03-29  = 
 
 * Development

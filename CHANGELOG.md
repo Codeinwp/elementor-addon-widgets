@@ -1,4 +1,10 @@
 
+ ### v1.2.0 - 2018-03-29 
+ **Changes:** 
+ * Adds support for the premium version.
+* Adds automatic page templates synchronization.
+* Adds support for future extra-widgets and add-ons.
+ 
  ### v1.1.7 - 2018-03-29 
  **Changes:** 
  * Development
