@@ -177,7 +177,7 @@ class Elementor_Addon_Widgets {
 			),
 			'tekt-about'     => array(
 				'title'       => __( 'Tekt - About Page', 'elementor-addon-widgets' ),
-				'description' => __( 'This is the About page of a business based on interior design and architecture, which allows you to beautifully showcase your team members. Apart from introducing the team, you have modern blocks and toggle elements where you can talk more about your agency: add values, services, statistics, and images. (edited)', 'elementor-addon-widgets' ),
+				'description' => __( 'This is the About page of a business based on interior design and architecture, which allows you to beautifully showcase your team members. Apart from introducing the team, you have modern blocks and toggle elements where you can talk more about your agency: add values, services, statistics, and images.', 'elementor-addon-widgets' ),
 				'demo_url'    => 'https://demo.themeisle.com/hestia-pro-demo-content/tekt-about-page/',
 				'screenshot'  => esc_url( 'https://raw.githubusercontent.com/Codeinwp/obfx-templates/master/placeholders/tekt-about.png' ),
 				'has_badge'   => __( 'Pro', 'elementor-addon-widgets' ),
