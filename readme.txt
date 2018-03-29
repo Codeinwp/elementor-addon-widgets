@@ -61,6 +61,11 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 == Changelog ==
+= 1.1.6 - 2018-03-29  = 
+
+* Rebranded plugin to Sizzify
+
+
 = 1.1.5 - 2018-02-08  = 
 
 * Added Template Directory [under Pages > Template Directory]
