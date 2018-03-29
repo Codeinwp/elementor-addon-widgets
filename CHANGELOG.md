@@ -1,4 +1,8 @@
 
+ ### v1.1.6 - 2018-03-29 
+ **Changes:** 
+ * Rebranded plugin to Sizzify
+ 
  ### v1.1.5 - 2018-02-08 
  **Changes:** 
  * Added Template Directory [under Pages > Template Directory]
