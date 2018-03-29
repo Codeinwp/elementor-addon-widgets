@@ -3,7 +3,7 @@
  * Plugin Name: Sizzify - Elementor Addons & Templates Lite
  * Plugin URI: https://themeisle.com/
  * Description: Adds new Addons & Widgets that are specifically designed to be used in conjunction with the Elementor Page Builder.
- * Version: 1.1.5
+ * Version: 1.1.6
  * Author: ThemeIsle
  * Author URI: https://themeisle.com/
  * Requires at least:   4.4
@@ -23,7 +23,7 @@ Constants
 ------------------------------------------ */
 
 /* Set plugin version constant. */
-define( 'EA_VERSION', '1.1.5' );
+define( 'EA_VERSION', '1.1.6' );
 
 /* Set constant path to the plugin directory. */
 define( 'EA_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
@@ -31,7 +31,7 @@ define( 'EA_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 /* Set the constant path to the plugin directory URI. */
 define( 'EA_URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 
-define( 'SIZZIFY_UPSELL_LINK', 'https://themeisle.com/plugins/sizzify-elementor-addons-templates/' );
+define( 'SIZZIFY_UPSELL_LINK', 'https://themeisle.com/plugins/sizzify-elementor-addons-templates' );
 
 
 /* ElemenTemplater Class */
