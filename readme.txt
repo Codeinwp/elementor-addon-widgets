@@ -61,6 +61,15 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 == Changelog ==
+= 1.2.1 - 2018-07-06  = 
+
+* Fixes post grid pagination issue
+* Fixes post grid colors not applying correctly
+* Fixes Templates directory import issue
+* Fixes content forms placeholder not used
+* New templates in the templates directory
+
+
 = 1.2.0 - 2018-03-29  = 
 
 * Adds support for the premium version.

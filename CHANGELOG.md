@@ -1,4 +1,12 @@
 
+ ### v1.2.1 - 2018-07-06 
+ **Changes:** 
+ * Fixes post grid pagination issue
+* Fixes post grid colors not applying correctly
+* Fixes Templates directory import issue
+* Fixes content forms placeholder not used
+* New templates in the templates directory
+ 
  ### v1.2.0 - 2018-03-29 
  **Changes:** 
  * Adds support for the premium version.
