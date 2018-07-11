@@ -1,4 +1,8 @@
 
+ ### v1.2.2 - 2018-07-11 
+ **Changes:** 
+ * Added styling options for elementor form widgets
+ 
  ### v1.2.1 - 2018-07-06 
  **Changes:** 
  * Fixes post grid pagination issue
