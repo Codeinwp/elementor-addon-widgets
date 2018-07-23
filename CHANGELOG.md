@@ -1,4 +1,8 @@
 
+ ### v1.2.3 - 2018-07-11 
+ **Changes:** 
+ * Version bump.
+ 
  ### v1.2.2 - 2018-07-11 
  **Changes:** 
  * Added styling options for elementor form widgets

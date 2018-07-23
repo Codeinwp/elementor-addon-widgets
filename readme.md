@@ -61,6 +61,11 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 ## Changelog ##
+### 1.2.3 - 2018-07-11  ###
+
+* Version bump.
+
+
 ### 1.2.2 - 2018-07-11  ###
 
 * Added styling options for elementor form widgets
