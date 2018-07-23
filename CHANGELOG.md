@@ -1,4 +1,8 @@
 
+ ### v1.2.4 - 2018-07-23 
+ **Changes:** 
+ * Add new controls for Elementor content forms.
+ 
  ### v1.2.3 - 2018-07-11 
  **Changes:** 
  * Version bump.
