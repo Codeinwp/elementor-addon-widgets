@@ -33,8 +33,7 @@ class Elementor_Addon_Widgets {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		add_action( 'wp_ajax_update_dismissed', array( $this, 'update_dismissed' ) );
-		add_action( 'wp_ajax_nopriv_update_dismissed', array( $this, 'update_dismissed' ) );
+		add_action( 'wp_ajax_eaw_update_dismissed', array( $this, 'eaw_update_dismissed' ) );
 
 		add_filter( 'admin_menu', array( $this, 'admin_pages' ) );
 
@@ -66,19 +65,21 @@ class Elementor_Addon_Widgets {
 	public function show_theme_promotion() {
 		$now        = strtotime( 'now' );
 		$start_date = strtotime( '3 december 2018 00:00' );
-		if ( get_option( 'sizzify_promotion' ) == 'display' && ( $now >= $start_date ) ) {
-			echo '<div class="pro-feature theme-promote">
-			<div class="pro-feature-dismiss"><span class="dashicons dashicons-dismiss"></span></div>
-				<div class="pro-feature-features">
-					<h2>Suggested theme</h2>
-					<p>Do you enjoy working with Elementor? Check out Neve, our new FREE multipurpose theme. It\' s simple, fast and fully compatible with both Elementor and Gutenberg. We recommend to try it out together with Sizzify Lite.</p>
-					<a target="_blank" href="' . admin_url( 'theme-install.php?theme=neve' ) . '" class="install-now">
-					<span class="dashicons dashicons-admin-appearance"></span> Install Neve</a>
-				</div>
-				<div class="pro-feature-image">
-					<img src="' . esc_url( EA_URI . '/assets/img/neve.jpg' ) . '" alt="Neve - Free Multipurpose Theme">
-				</div></div>';
+		if ( get_option( 'sizzify_promotion' ) !== 'display' || ( $now < $start_date ) ) {
+			return;
 		}
+		echo '<div class="pro-feature theme-promote">
+			<div class="pro-feature-dismiss"><span class="dashicons dashicons-dismiss"></span></div>
+			<div class="pro-feature-features">
+				<h2>Suggested theme</h2>
+				<p>Do you enjoy working with Elementor? Check out Neve, our new FREE multipurpose theme. It\' s simple, fast and fully compatible with both Elementor and Gutenberg. We recommend to try it out together with Sizzify Lite.</p>
+				<a target="_blank" href="' . admin_url( 'theme-install.php?theme=neve' ) . '" class="install-now">
+				<span class="dashicons dashicons-admin-appearance"></span> Install Neve</a>
+			</div>
+			<div class="pro-feature-image">
+				<img src="' . esc_url( EA_URI . '/assets/img/neve.jpg' ) . '" alt="Neve - Free Multipurpose Theme">
+			</div>
+			</div>';
 	}
 
 	public function update_dismissed() {

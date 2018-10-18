@@ -25,7 +25,7 @@
 
 		<div class="theme-promotions">
 			<?php
-			Elementor_Addon_Widgets::show_theme_promotion();
+			Elementor_Addon_Widgets::get_instance()->show_theme_promotion();
 			?>
 		</div>
 		

@@ -2,10 +2,10 @@
 # This file is distributed under the no.
 msgid ""
 msgstr ""
-"Project-Id-Version: Elementor Addons & Templates - Sizzify Lite 1.2.5\n"
+"Project-Id-Version: Elementor Addons & Templates - Sizzify Lite 1.2.6\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/Codeinwp/elementor-addon-widgets/issues\n"
-"POT-Creation-Date: 2018-10-18 09:47:34+00:00\n"
+"POT-Creation-Date: 2018-10-18 11:12:39+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,27 +25,27 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: eaw-class.php:92 eaw-class.php:106
+#: eaw-class.php:93 eaw-class.php:107
 msgid "Sizzify Template Directory"
 msgstr ""
 
-#: eaw-class.php:127
+#: eaw-class.php:128
 msgid "Sizzify"
 msgstr ""
 
-#: eaw-class.php:127
+#: eaw-class.php:128
 msgid "More Features"
 msgstr ""
 
-#: eaw-class.php:155
+#: eaw-class.php:156
 msgid "Sizzify Widgets"
 msgstr ""
 
-#: eaw-class.php:175
+#: eaw-class.php:176
 msgid "Hive - Landing Page"
 msgstr ""
 
-#: eaw-class.php:176
+#: eaw-class.php:177
 msgid ""
 "A clean and modern design perfectly suitable for both corporate and "
 "creative businesses. Its sections come with a professional vibe and "
@@ -54,16 +54,16 @@ msgid ""
 "buttons."
 msgstr ""
 
-#: eaw-class.php:179 eaw-class.php:186 eaw-class.php:193 eaw-class.php:200
-#: eaw-class.php:207 eaw-class.php:214
+#: eaw-class.php:180 eaw-class.php:187 eaw-class.php:194 eaw-class.php:201
+#: eaw-class.php:208 eaw-class.php:215
 msgid "Pro"
 msgstr ""
 
-#: eaw-class.php:182
+#: eaw-class.php:183
 msgid "Hive - About Page"
 msgstr ""
 
-#: eaw-class.php:183
+#: eaw-class.php:184
 msgid ""
 "A beautiful and complex layout for the About Us page, that allows you to "
 "introduce your team in a professional manner. The design of this page lets "
@@ -72,11 +72,11 @@ msgid ""
 "in the spotlight by a subtle orange color."
 msgstr ""
 
-#: eaw-class.php:189
+#: eaw-class.php:190
 msgid "Sine - Landing Page"
 msgstr ""
 
-#: eaw-class.php:190
+#: eaw-class.php:191
 msgid ""
 "This is an Elementor layout for digital agencies, meant to turn your "
 "business goals into conversions. The design catches your eye with its "
@@ -85,11 +85,11 @@ msgid ""
 "wrapped up in modern and joyful content blocks and forms."
 msgstr ""
 
-#: eaw-class.php:196
+#: eaw-class.php:197
 msgid "Square - Landing Page"
 msgstr ""
 
-#: eaw-class.php:197
+#: eaw-class.php:198
 msgid ""
 "A nice and complex landing page for products and apps, with a modern "
 "interface that combines orange and violet color tones. All the elements "
@@ -99,11 +99,11 @@ msgid ""
 "a beautiful full-screen design."
 msgstr ""
 
-#: eaw-class.php:203
+#: eaw-class.php:204
 msgid "Tekt - Landing Page"
 msgstr ""
 
-#: eaw-class.php:204
+#: eaw-class.php:205
 msgid ""
 "A layout for architects and interior design agencies, with a clean and "
 "simple interface. The full-width header, the modern content blocks, and the "
@@ -111,11 +111,11 @@ msgid ""
 "template a perfect fit for your architecture agency."
 msgstr ""
 
-#: eaw-class.php:210
+#: eaw-class.php:211
 msgid "Tekt - About Page"
 msgstr ""
 
-#: eaw-class.php:211
+#: eaw-class.php:212
 msgid ""
 "This is the About page of a business based on interior design and "
 "architecture, which allows you to beautifully showcase your team members. "
@@ -124,7 +124,7 @@ msgid ""
 "statistics, and images."
 msgstr ""
 
-#: eaw-class.php:258 eaw-class.php:267
+#: eaw-class.php:259 eaw-class.php:268
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 

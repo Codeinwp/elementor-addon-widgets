@@ -3,7 +3,7 @@ jQuery(document).ready(function(){
 		jQuery.ajax({
 			url: sizzifyajax.ajax_url,
 			data: {
-				action: 'update_dismissed'
+				action: 'eaw_update_dismissed'
 			},
 			success: function(data) {
 				jQuery('.theme-promote').fadeOut();
