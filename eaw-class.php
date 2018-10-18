@@ -82,7 +82,7 @@ class Elementor_Addon_Widgets {
 			</div>';
 	}
 
-	public function update_dismissed() {
+	public function eaw_update_dismissed() {
 		update_option( 'sizzify_promotion', 'no-display' );
 		wp_die();
 	}
