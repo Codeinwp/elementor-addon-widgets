@@ -23,4 +23,10 @@
 					 alt="Premium Templates"></div>
 		</div>
 
+		<div class="theme-promotions">
+			<?php
+			Elementor_Addon_Widgets::show_theme_promotion();
+			?>
+		</div>
+		
 </div>

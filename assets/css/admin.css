@@ -80,6 +80,50 @@
 	padding-right: 3px;
 }
 
+#sizzify-page-wrapper .pro-feature.theme-promote {
+	display: block;
+	position: relative;
+	padding: 60px 60px 30px;
+}
+
+#sizzify-page-wrapper .pro-feature .pro-feature-dismiss {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px;
+	box-shadow: 0 1px 0 1px rgba(0,0,0,0.1);
+}
+
+#sizzify-page-wrapper .pro-feature .pro-feature-dismiss span {
+	cursor: pointer;
+}
+
+#sizzify-page-wrapper .pro-feature .install-now {
+	display: inline-block;
+	margin-top: 2px;
+	margin-right: 5px;
+	padding: 15px 25px;
+	border-radius: 3px;
+	border-radius: 3px;
+	color: #fff;
+	background: #e33b3f;
+	font-family: "Open Sans", sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: uppercase;
+	-webkit-transition: all 0.250s ease-in-out;
+	transition: all 0.250s ease-in-out;
+}
+
+#sizzify-page-wrapper .pro-feature .install-now:hover {
+	background: #252b37;
+}
+
+#sizzify-page-wrapper .pro-feature .install-now .dashicons {
+	padding-right: 3px;
+}
+
 #sizzify-page-wrapper {
 	padding: 0;
 }
@@ -136,9 +180,9 @@
 }
 
 #sizzify-page-wrapper .pro-feature .pro-feature-image img {
+	width: auto;
 	max-width: 100%;
 	height: auto;
-	width: auto;
 	border-radius: 3px;
 }
 
@@ -200,7 +244,9 @@
 	#sizzify-page-wrapper .slogan {
 		display: none;
 	}
-	#sizzify-page-wrapper .pro-features-header, #sizzify-page-wrapper .pro-feature {
+
+	#sizzify-page-wrapper .pro-features-header,
+	#sizzify-page-wrapper .pro-feature {
 		display: block;
 		text-align: center;
 	}

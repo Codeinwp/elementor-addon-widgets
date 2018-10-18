@@ -3,7 +3,7 @@
  * Plugin Name: Elementor Addons & Templates - Sizzify Lite
  * Plugin URI: https://themeisle.com/
  * Description: Adds new Addons & Widgets that are specifically designed to be used in conjunction with the Elementor Page Builder.
- * Version: 1.2.5
+ * Version: 1.2.6
  * Author: ThemeIsle
  * Author URI: https://themeisle.com/
  * Requires at least:   4.4
@@ -23,7 +23,7 @@ Constants
 ------------------------------------------ */
 
 /* Set plugin version constant. */
-define( 'EA_VERSION', '1.2.5' );
+define( 'EA_VERSION', '1.2.6' );
 
 /* Set constant path to the plugin directory. */
 define( 'EA_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
@@ -92,3 +92,27 @@ function elementor_addon_widgets_register_sdk( $products ) {
 }
 
 add_filter( 'themeisle_sdk_products', 'elementor_addon_widgets_register_sdk', 10, 1 );
+
+/**
+ * Add option 'sizzify_promotion' on plugin activation
+ */
+function elementor_addon_widgets_activate() {
+	add_option( 'sizzify_promotion', 'display' );
+}
+register_activation_hook( __FILE__, 'elementor_addon_widgets_activate' );
+
+/**
+ * Update option 'sizzify_promotion' on plugin deactivation
+ */
+function elementor_addon_widgets_deactivate() {
+	update_option( 'sizzify_promotion', 'display' );
+}
+register_deactivation_hook( __FILE__, 'elementor_addon_widgets_deactivate' );
+
+/**
+ * Delete option 'sizzify_promotion' on plugin uninstall
+ */
+function elementor_addon_widgets_uninstall() {
+	delete_option( 'sizzify_promotion' );
+}
+register_uninstall_hook( __FILE__, 'elementor_addon_widgets_uninstall' );
