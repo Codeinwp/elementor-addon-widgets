@@ -94,25 +94,33 @@ function elementor_addon_widgets_register_sdk( $products ) {
 add_filter( 'themeisle_sdk_products', 'elementor_addon_widgets_register_sdk', 10, 1 );
 
 /**
- * Add option 'sizzify_promotion' on plugin activation
- */
-function elementor_addon_widgets_activate() {
-	add_option( 'sizzify_promotion', 'display' );
-}
-register_activation_hook( __FILE__, 'elementor_addon_widgets_activate' );
-
-/**
- * Update option 'sizzify_promotion' on plugin deactivation
+ * Delete user meta 'sizzify_ignore_neve_notice' on plugin deactivation
  */
 function elementor_addon_widgets_deactivate() {
-	update_option( 'sizzify_promotion', 'display' );
+	$all_users = get_users(
+		array(
+			'meta_key'   => 'sizzify_ignore_neve_notice',
+			'meta_value' => 'true',
+		)
+	);
+	foreach ( $all_users as $user ) {
+		delete_user_meta( $user->ID, 'sizzify_ignore_neve_notice' );
+	}
 }
 register_deactivation_hook( __FILE__, 'elementor_addon_widgets_deactivate' );
 
 /**
- * Delete option 'sizzify_promotion' on plugin uninstall
+ * Delete user meta 'sizzify_ignore_neve_notice' on plugin deactivation
  */
 function elementor_addon_widgets_uninstall() {
-	delete_option( 'sizzify_promotion' );
+	$all_users = get_users(
+		array(
+			'meta_key'   => 'sizzify_ignore_neve_notice',
+			'meta_value' => 'true',
+		)
+	);
+	foreach ( $all_users as $user ) {
+		delete_user_meta( $user->ID, 'sizzify_ignore_neve_notice' );
+	}
 }
 register_uninstall_hook( __FILE__, 'elementor_addon_widgets_uninstall' );

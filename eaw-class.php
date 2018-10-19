@@ -33,7 +33,7 @@ class Elementor_Addon_Widgets {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		add_action( 'wp_ajax_eaw_update_dismissed', array( $this, 'eaw_update_dismissed' ) );
+		add_action( 'admin_init', array( $this, 'eaw_update_dismissed' ) );
 
 		add_filter( 'admin_menu', array( $this, 'admin_pages' ) );
 
@@ -54,8 +54,6 @@ class Elementor_Addon_Widgets {
 		$current_screen = get_current_screen();
 		if ( $current_screen->id === 'sizzify_page_sizzify_more_features' || $current_screen->id === 'toplevel_page_sizzify-admin' ) {
 			wp_enqueue_style( 'sizzify-admin-style', EA_URI . 'assets/css/admin.css', array(), EA_VERSION );
-			wp_enqueue_script( 'sizzify-admin-script', EA_URI . 'assets/js/admin-script.js', array( 'jquery' ), EA_VERSION, true );
-			wp_localize_script( 'sizzify-admin-script', 'sizzifyajax', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 		}
 	}
 
@@ -63,13 +61,20 @@ class Elementor_Addon_Widgets {
 	 * Shows theme promotion box for Neve after 3rd of December only if the box is not dismissed yet
 	 */
 	public function show_theme_promotion() {
-		$now        = strtotime( 'now' );
-		$start_date = strtotime( '3 december 2018 00:00' );
-		if ( get_option( 'sizzify_promotion' ) !== 'display' || ( $now < $start_date ) ) {
+
+		global $current_user;
+		$user_id = $current_user->ID;
+
+		$now            = strtotime( 'now' );
+		$start_date     = strtotime( '3 december 2018 00:00' );
+		$ignored_notice = get_user_meta( $user_id, 'sizzify_ignore_neve_notice' );
+
+		if ( ! empty( $ignored_notice ) || ( $now < $start_date ) ) {
 			return;
 		}
+
 		echo '<div class="pro-feature theme-promote">
-			<div class="pro-feature-dismiss"><span class="dashicons dashicons-dismiss"></span></div>
+			<div class="pro-feature-dismiss"><a href="' . admin_url( 'admin.php?page=sizzify-admin&sizzify_ignore_notice=0' ) . '"><span class="dashicons dashicons-dismiss"></span></a></div>
 			<div class="pro-feature-features">
 				<h2>Suggested theme</h2>
 				<p>Do you enjoy working with Elementor? Check out Neve, our new FREE multipurpose theme. It\' s simple, fast and fully compatible with both Elementor and Gutenberg. We recommend to try it out together with Sizzify Lite.</p>
@@ -83,8 +88,11 @@ class Elementor_Addon_Widgets {
 	}
 
 	public function eaw_update_dismissed() {
-		update_option( 'sizzify_promotion', 'no-display' );
-		wp_die();
+		global $current_user;
+		$user_id = $current_user->ID;
+		if ( isset( $_GET['sizzify_ignore_notice'] ) && '0' == $_GET['sizzify_ignore_notice'] ) {
+			add_user_meta( $user_id, 'sizzify_ignore_neve_notice', 'true', true );
+		}
 	}
 
 	public function add_page( $products ) {

@@ -86,6 +86,17 @@
 	padding: 60px 60px 30px;
 }
 
+#sizzify-page-wrapper .pro-feature.theme-promote .pro-feature-dismiss a {
+	color: #444;
+	text-decoration: none;
+}
+
+#sizzify-page-wrapper .pro-feature.theme-promote .pro-feature-dismiss a:hover,
+#sizzify-page-wrapper .pro-feature.theme-promote .pro-feature-dismiss a:focus {
+	color: #e33b3f;
+	box-shadow: none;
+}
+
 #sizzify-page-wrapper .pro-feature .pro-feature-dismiss {
 	position: absolute;
 	top: 0;
