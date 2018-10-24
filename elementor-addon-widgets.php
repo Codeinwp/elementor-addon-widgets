@@ -94,23 +94,7 @@ function elementor_addon_widgets_register_sdk( $products ) {
 add_filter( 'themeisle_sdk_products', 'elementor_addon_widgets_register_sdk', 10, 1 );
 
 /**
- * Delete user meta 'sizzify_ignore_neve_notice' on plugin deactivation
- */
-function elementor_addon_widgets_deactivate() {
-	$all_users = get_users(
-		array(
-			'meta_key'   => 'sizzify_ignore_neve_notice',
-			'meta_value' => 'true',
-		)
-	);
-	foreach ( $all_users as $user ) {
-		delete_user_meta( $user->ID, 'sizzify_ignore_neve_notice' );
-	}
-}
-register_deactivation_hook( __FILE__, 'elementor_addon_widgets_deactivate' );
-
-/**
- * Delete user meta 'sizzify_ignore_neve_notice' on plugin deactivation
+ * Delete user meta 'sizzify_ignore_neve_notice' on plugin uninstall
  */
 function elementor_addon_widgets_uninstall() {
 	$all_users = get_users(

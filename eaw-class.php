@@ -90,7 +90,7 @@ class Elementor_Addon_Widgets {
 	public function eaw_update_dismissed() {
 		global $current_user;
 		$user_id = $current_user->ID;
-		if ( isset( $_GET['sizzify_ignore_notice'] ) && '0' == $_GET['sizzify_ignore_notice'] ) {
+		if ( isset( $_GET['sizzify_ignore_notice'] ) && '0' === $_GET['sizzify_ignore_notice'] ) {
 			add_user_meta( $user_id, 'sizzify_ignore_neve_notice', 'true', true );
 		}
 	}
