@@ -63,13 +63,10 @@ class Elementor_Addon_Widgets {
 	public function show_theme_promotion() {
 
 		global $current_user;
-		$user_id = $current_user->ID;
-
-		$now            = strtotime( 'now' );
-		$start_date     = strtotime( '3 december 2018 00:00' );
+		$user_id        = $current_user->ID;
 		$ignored_notice = get_user_meta( $user_id, 'sizzify_ignore_neve_notice' );
 
-		if ( ! empty( $ignored_notice ) || ( $now < $start_date ) ) {
+		if ( ! empty( $ignored_notice ) ) {
 			return;
 		}
 
@@ -78,7 +75,7 @@ class Elementor_Addon_Widgets {
 			<div class="pro-feature-features">
 				<h2>Suggested theme</h2>
 				<p>Do you enjoy working with Elementor? Check out Neve, our new FREE multipurpose theme. It\' s simple, fast and fully compatible with both Elementor and Gutenberg. We recommend to try it out together with Sizzify Lite.</p>
-				<a target="_blank" href="' . admin_url( 'theme-install.php?theme=neve' ) . '" class="install-now">
+				<a target="_blank" href="https://themeisle.com/demo/?theme=Neve" class="install-now">
 				<span class="dashicons dashicons-admin-appearance"></span> Install Neve</a>
 			</div>
 			<div class="pro-feature-image">
