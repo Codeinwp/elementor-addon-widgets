@@ -61,6 +61,11 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 ## Changelog ##
+### 1.2.5 - 2018-07-26  ###
+
+* Development
+
+
 ### 1.2.4 - 2018-07-23  ###
 
 * Add new controls for Elementor content forms.
