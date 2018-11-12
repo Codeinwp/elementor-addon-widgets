@@ -33,6 +33,8 @@ class Elementor_Addon_Widgets {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
+		add_action( 'admin_init', array( $this, 'eaw_update_dismissed' ) );
+
 		add_filter( 'admin_menu', array( $this, 'admin_pages' ) );
 
 		add_filter( 'elementor_extra_widgets_category_args', array( $this, 'filter_category_args' ) );
@@ -52,6 +54,41 @@ class Elementor_Addon_Widgets {
 		$current_screen = get_current_screen();
 		if ( $current_screen->id === 'sizzify_page_sizzify_more_features' || $current_screen->id === 'toplevel_page_sizzify-admin' ) {
 			wp_enqueue_style( 'sizzify-admin-style', EA_URI . 'assets/css/admin.css', array(), EA_VERSION );
+		}
+	}
+
+	/**
+	 * Shows theme promotion box for Neve after 3rd of December only if the box is not dismissed yet
+	 */
+	public function show_theme_promotion() {
+
+		global $current_user;
+		$user_id        = $current_user->ID;
+		$ignored_notice = get_user_meta( $user_id, 'sizzify_ignore_neve_notice' );
+
+		if ( ! empty( $ignored_notice ) ) {
+			return;
+		}
+
+		echo '<div class="pro-feature theme-promote">
+			<div class="pro-feature-dismiss"><a href="' . admin_url( 'admin.php?page=sizzify-admin&sizzify_ignore_notice=0' ) . '"><span class="dashicons dashicons-dismiss"></span></a></div>
+			<div class="pro-feature-features">
+				<h2>Suggested theme</h2>
+				<p>Do you enjoy working with Elementor? Check out Neve, our new FREE multipurpose theme. It\' s simple, fast and fully compatible with both Elementor and Gutenberg. We recommend to try it out together with Sizzify Lite.</p>
+				<a target="_blank" href="https://themeisle.com/demo/?theme=Neve" class="install-now">
+				<span class="dashicons dashicons-admin-appearance"></span> Install Neve</a>
+			</div>
+			<div class="pro-feature-image">
+				<img src="' . esc_url( EA_URI . '/assets/img/neve.jpg' ) . '" alt="Neve - Free Multipurpose Theme">
+			</div>
+			</div>';
+	}
+
+	public function eaw_update_dismissed() {
+		global $current_user;
+		$user_id = $current_user->ID;
+		if ( isset( $_GET['sizzify_ignore_notice'] ) && '0' === $_GET['sizzify_ignore_notice'] ) {
+			add_user_meta( $user_id, 'sizzify_ignore_neve_notice', 'true', true );
 		}
 	}
 
@@ -84,17 +121,26 @@ class Elementor_Addon_Widgets {
 	public function admin_pages() {
 
 		add_menu_page(
-			'Sizzify', 'Sizzify', 'manage_options', 'sizzify-admin', array(
+			'Sizzify',
+			'Sizzify',
+			'manage_options',
+			'sizzify-admin',
+			array(
 				$this,
 				'render_main_page',
-			), 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTMuMTcgMTU4LjUiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOiNmMmYyZjI7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5Bc3NldCA4PC90aXRsZT48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTg1LjcyIiBjeT0iMTguNjgiIHI9IjcuNDUiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTUyLjk5IiBjeT0iMTkuNjYiIHI9IjUuMTgiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTYxLjk5IiBjeT0iNTUuMDYiIHI9IjEzIi8+PGNpcmNsZSBjbGFzcz0iYSIgY3g9IjE2OC4zNCIgY3k9IjkuOTgiIHI9IjUuMDQiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTUwLjUxIiBjeT0iMyIgcj0iMyIvPjxjaXJjbGUgY2xhc3M9ImEiIGN4PSIxNTguNTEiIGN5PSIzNCIgcj0iMyIvPjxjaXJjbGUgY2xhc3M9ImEiIGN4PSIxNDQuMTYiIGN5PSIzNi45MyIgcj0iNiIvPjxjaXJjbGUgY2xhc3M9ImEiIGN4PSIxODMuNSIgY3k9IjQwLjM2IiByPSI3LjUiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTY4LjQ3IiBjeT0iMjkuODMiIHI9IjQiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTM2LjI4IiBjeT0iMTYuNzYiIHI9IjYuODkiLz48cGF0aCBjbGFzcz0iYSIgZD0iTTEyNS42NywxMTAuNjZhNDEuNjUsNDEuNjUsMCwwLDEtNy41LDI0LjIycS03LjUsMTAuODUtMjIuNCwxNy4yM1Q1OS41OSwxNTguNWExNTAuNywxNTAuNywwLDAsMS0yMC4zNi0xLjM4LDgsOCwwLDEsMC0xNC41MS00LjY0LDguMjQsOC4yNCwwLDAsMCwuMjYsMkExMTEuNCwxMTEuNCwwLDAsMSw3LjY5LDE0OSw2LDYsMCwwLDAsLjExLDEzOS43YTcuNzgsNy43OCwwLDAsMSwuNjQtMi41NWw5LTIwLjMzYTgsOCwwLDAsMSw4LjE2LTQuNzIsOCw4LDAsMSwwLDEyLjgyLDYuMzgsNy43Miw3LjcyLDAsMCwwLS4xOC0xLjY4YzEuNzQuNTksMy41MSwxLjE1LDUuMzMsMS42N0E4OC45Miw4OC45MiwwLDAsMCw2MCwxMjJxOS45MywwLDE0LjE5LTEuOTJjMi44NC0xLjI5LDQuMjYtMy4yMSw0LjI2LTUuNzhxMC00LjQ1LTUuNTctNi42OXQtMTguMzUtNC44NmEyMDkuNTMsMjA5LjUzLDAsMCwxLTI3LjM2LTcuNGwtMS4yNy0uNUExMywxMywwLDAsMCw2LjczLDgwLjcyUTAsNzIsMCw1OEE0Myw0MywwLDAsMSwyLDQ0Ljc3LDgsOCwwLDAsMCw4LjIyLDM3YTguMDYsOC4wNiwwLDAsMC0uNzMtMy4zM2gwQTQ1LjU1LDQ1LjU1LDAsMCwxLDIyLjY1LDIwYTcuNDksNy40OSwwLDAsMCwxMi41Ny01LjUydjBxMTMuMjQtNC4zMSwzMC44NS00LjMzYTEzMS43NywxMzEuNzcsMCwwLDEsMjguNjksMy4xNEE5Ny45MSw5Ny45MSwwLDAsMSwxMTIuNiwxOWE4LDgsMCwwLDEsNC4xMiwxMC4zOGwtOC4zMywyMC4wOGE4LDgsMCwwLDEtMTAuNDYsNC4zMlE4MSw0Ni42MSw2NS42Nyw0Ni42MXEtMTguNDUsMC0xOC40NSw4LjkyLDAsNC4yNiw1LjQ4LDYuMzl0MTgsNC41NmExODMuOTMsMTgzLjkzLDAsMCwxLDI3LjM2LDcsNDcuNTgsNDcuNTgsMCwwLDEsMTkuMzYsMTIuODdRMTI1LjY3LDk1LjI3LDEyNS42NywxMTAuNjZaTTYxLjcyLDE1NS40OGEzLDMsMCwxLDAtMywzQTMsMywwLDAsMCw2MS43MiwxNTUuNDhabS02LTI2YTQsNCwwLDEsMC00LDRBNCw0LDAsMCwwLDU1LjcyLDEyOS40OFptLTE0LjUtNzRBMTAuNSwxMC41LDAsMSwwLDMwLjcyLDY2LDEwLjUsMTAuNSwwLDAsMCw0MS4yMiw1NS40OFoiLz48cGF0aCBjbGFzcz0iYSIgZD0iTTE2MS4zNSw3NkEyMywyMywwLDAsMSwxNDIuMSw2NS41NmEyLDIsMCwwLDAtMy42NiwxLjExdjgwLjU4YTgsOCwwLDAsMCw4LDhoMjkuODFhOCw4LDAsMCwwLDgtOFY2Ni42N2EyLDIsMCwwLDAtMy42NS0xLjExQTIzLDIzLDAsMCwxLDE2MS4zNSw3NloiLz48L3N2Zz4=',
+			),
+			'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTMuMTcgMTU4LjUiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOiNmMmYyZjI7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5Bc3NldCA4PC90aXRsZT48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTg1LjcyIiBjeT0iMTguNjgiIHI9IjcuNDUiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTUyLjk5IiBjeT0iMTkuNjYiIHI9IjUuMTgiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTYxLjk5IiBjeT0iNTUuMDYiIHI9IjEzIi8+PGNpcmNsZSBjbGFzcz0iYSIgY3g9IjE2OC4zNCIgY3k9IjkuOTgiIHI9IjUuMDQiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTUwLjUxIiBjeT0iMyIgcj0iMyIvPjxjaXJjbGUgY2xhc3M9ImEiIGN4PSIxNTguNTEiIGN5PSIzNCIgcj0iMyIvPjxjaXJjbGUgY2xhc3M9ImEiIGN4PSIxNDQuMTYiIGN5PSIzNi45MyIgcj0iNiIvPjxjaXJjbGUgY2xhc3M9ImEiIGN4PSIxODMuNSIgY3k9IjQwLjM2IiByPSI3LjUiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTY4LjQ3IiBjeT0iMjkuODMiIHI9IjQiLz48Y2lyY2xlIGNsYXNzPSJhIiBjeD0iMTM2LjI4IiBjeT0iMTYuNzYiIHI9IjYuODkiLz48cGF0aCBjbGFzcz0iYSIgZD0iTTEyNS42NywxMTAuNjZhNDEuNjUsNDEuNjUsMCwwLDEtNy41LDI0LjIycS03LjUsMTAuODUtMjIuNCwxNy4yM1Q1OS41OSwxNTguNWExNTAuNywxNTAuNywwLDAsMS0yMC4zNi0xLjM4LDgsOCwwLDEsMC0xNC41MS00LjY0LDguMjQsOC4yNCwwLDAsMCwuMjYsMkExMTEuNCwxMTEuNCwwLDAsMSw3LjY5LDE0OSw2LDYsMCwwLDAsLjExLDEzOS43YTcuNzgsNy43OCwwLDAsMSwuNjQtMi41NWw5LTIwLjMzYTgsOCwwLDAsMSw4LjE2LTQuNzIsOCw4LDAsMSwwLDEyLjgyLDYuMzgsNy43Miw3LjcyLDAsMCwwLS4xOC0xLjY4YzEuNzQuNTksMy41MSwxLjE1LDUuMzMsMS42N0E4OC45Miw4OC45MiwwLDAsMCw2MCwxMjJxOS45MywwLDE0LjE5LTEuOTJjMi44NC0xLjI5LDQuMjYtMy4yMSw0LjI2LTUuNzhxMC00LjQ1LTUuNTctNi42OXQtMTguMzUtNC44NmEyMDkuNTMsMjA5LjUzLDAsMCwxLTI3LjM2LTcuNGwtMS4yNy0uNUExMywxMywwLDAsMCw2LjczLDgwLjcyUTAsNzIsMCw1OEE0Myw0MywwLDAsMSwyLDQ0Ljc3LDgsOCwwLDAsMCw4LjIyLDM3YTguMDYsOC4wNiwwLDAsMC0uNzMtMy4zM2gwQTQ1LjU1LDQ1LjU1LDAsMCwxLDIyLjY1LDIwYTcuNDksNy40OSwwLDAsMCwxMi41Ny01LjUydjBxMTMuMjQtNC4zMSwzMC44NS00LjMzYTEzMS43NywxMzEuNzcsMCwwLDEsMjguNjksMy4xNEE5Ny45MSw5Ny45MSwwLDAsMSwxMTIuNiwxOWE4LDgsMCwwLDEsNC4xMiwxMC4zOGwtOC4zMywyMC4wOGE4LDgsMCwwLDEtMTAuNDYsNC4zMlE4MSw0Ni42MSw2NS42Nyw0Ni42MXEtMTguNDUsMC0xOC40NSw4LjkyLDAsNC4yNiw1LjQ4LDYuMzl0MTgsNC41NmExODMuOTMsMTgzLjkzLDAsMCwxLDI3LjM2LDcsNDcuNTgsNDcuNTgsMCwwLDEsMTkuMzYsMTIuODdRMTI1LjY3LDk1LjI3LDEyNS42NywxMTAuNjZaTTYxLjcyLDE1NS40OGEzLDMsMCwxLDAtMywzQTMsMywwLDAsMCw2MS43MiwxNTUuNDhabS02LTI2YTQsNCwwLDEsMC00LDRBNCw0LDAsMCwwLDU1LjcyLDEyOS40OFptLTE0LjUtNzRBMTAuNSwxMC41LDAsMSwwLDMwLjcyLDY2LDEwLjUsMTAuNSwwLDAsMCw0MS4yMiw1NS40OFoiLz48cGF0aCBjbGFzcz0iYSIgZD0iTTE2MS4zNSw3NkEyMywyMywwLDAsMSwxNDIuMSw2NS41NmEyLDIsMCwwLDAtMy42NiwxLjExdjgwLjU4YTgsOCwwLDAsMCw4LDhoMjkuODFhOCw4LDAsMCwwLDgtOFY2Ni42N2EyLDIsMCwwLDAtMy42NS0xLjExQTIzLDIzLDAsMCwxLDE2MS4zNSw3NloiLz48L3N2Zz4=',
 			'76'
 		);
 		remove_submenu_page( 'sizzify-admin', 'sizzify-admin' );
 		if ( ! defined( 'EAW_PRO_URL' ) ) {
 			add_submenu_page(
-				'sizzify-admin', __( 'Sizzify', 'elementor-addon-widgets' ), __( 'More Features', 'elementor-addon-widgets' ) . '<span class="dashicons 
-		dashicons-star-filled more-features-icon" style="width: 17px;height: 17px; margin-left: 4px; color: #ffca54;font-size: 17px;vertical-align: -3px;"></span>', 'manage_options', 'sizzify_more_features',
+				'sizzify-admin',
+				__( 'Sizzify', 'elementor-addon-widgets' ),
+				__( 'More Features', 'elementor-addon-widgets' ) . '<span class="dashicons 
+		dashicons-star-filled more-features-icon" style="width: 17px;height: 17px; margin-left: 4px; color: #ffca54;font-size: 17px;vertical-align: -3px;"></span>',
+				'manage_options',
+				'sizzify_more_features',
 				array(
 					$this,
 					'render_upsell',
