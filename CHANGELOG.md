@@ -1,4 +1,11 @@
 
+ ### v1.2.6 - 2018-11-12 
+ **Changes:** 
+ * Fix issue with elementor content forms php notice
+* Security fixes
+* Performance enhancements
+* Add notice to awesome Neve theme
+ 
  ### v1.2.5 - 2018-07-26 
  **Changes:** 
  * Fix bug for Elementor content forms.
