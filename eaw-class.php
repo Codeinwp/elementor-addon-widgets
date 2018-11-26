@@ -75,7 +75,7 @@ class Elementor_Addon_Widgets {
 			<div class="pro-feature-features">
 				<h2>Suggested theme</h2>
 				<p>Do you enjoy working with Elementor? Check out Neve, our new FREE multipurpose theme. It\' s simple, fast and fully compatible with both Elementor and Gutenberg. We recommend to try it out together with Sizzify Lite.</p>
-				<a target="_blank" href="https://themeisle.com/demo/?theme=Neve" class="install-now">
+				<a target="_blank" href="' . esc_url( admin_url( 'theme-install.php?theme=neve' ) ) . '" class="install-now">
 				<span class="dashicons dashicons-admin-appearance"></span> Install Neve</a>
 			</div>
 			<div class="pro-feature-image">
