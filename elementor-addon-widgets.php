@@ -108,3 +108,72 @@ function elementor_addon_widgets_uninstall() {
 	}
 }
 register_uninstall_hook( __FILE__, 'elementor_addon_widgets_uninstall' );
+
+function wpml_translate_widgets_example_code( $widgets ) {
+
+	class Services_Widget_Translation extends WPML_Elementor_Module_With_Items {
+
+		/**
+		 * @return string
+		 */
+		public function get_items_field() {
+			return 'services_list';
+		}
+
+		/**
+		 * @return array
+		 */
+		public function get_fields() {
+			return array( 'title', 'text' );
+		}
+
+		/**
+		 * @param string $field
+		 *
+		 * @return string
+		 */
+		protected function get_title( $field ) {
+			switch( $field ) {
+				case 'title':
+					return esc_html__( 'Services: Title', 'elementor-addon-widgets' );
+
+				case 'text':
+					return esc_html__( 'Services: description', 'elementor-addon-widgets' );
+
+				default:
+					return '';
+			}
+		}
+
+		/**
+		 * @param string $field
+		 *
+		 * @return string
+		 */
+		protected function get_editor_type( $field ) {
+			switch( $field ) {
+				case 'title':
+					return 'LINE';
+
+				case 'text':
+					return 'VISUAL';
+
+				default:
+					return '';
+			}
+		}
+
+	}
+	// Show how to add the Services widget
+
+	$widgets[ 'obfx-services' ] = [
+		'conditions' => [ 'widgetType' => 'obfx-services' ],
+		'fields'     => [],
+		'integration-class' => 'Services_Widget_Translation',
+	];
+
+	return $widgets;
+
+}
+
+add_filter( 'wpml_elementor_widgets_to_translate', 'wpml_translate_widgets_example_code' );
