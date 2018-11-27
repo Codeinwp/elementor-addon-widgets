@@ -58,7 +58,7 @@ class Elementor_Addon_Widgets {
 	}
 
 	/**
-	 * Shows theme promotion box for Neve after 3rd of December only if the box is not dismissed yet
+	 * Shows theme promotion box for Neve.
 	 */
 	public function show_theme_promotion() {
 
