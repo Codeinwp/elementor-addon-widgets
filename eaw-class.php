@@ -33,7 +33,6 @@ class Elementor_Addon_Widgets {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-
 		$current_theme = wp_get_theme();
 		$theme_name    = $current_theme->get( 'TextDomain' );
 		if ( $theme_name !== 'neve' ) {
