@@ -16,17 +16,20 @@
 		<div class="pro-feature">
 			<div class="pro-feature-features">
 				<h2>Extend your experience</h2>
-				<p>Sizzify - Elementor Addons & Templates was made to extend your page builder experience. It adds new widgets to your favourite page builder. It also comes with a bunch of One-Click Import page templates that you can customize to your liking with just a few clicks.</p>
+				<p>Sizzify - Elementor Addons & Templates was made to extend your page builder experience. It adds new
+					widgets to your favourite page builder. It also comes with a bunch of One-Click Import page
+					templates that you can customize to your liking with just a few clicks.</p>
 			</div>
 			<div class="pro-feature-image">
 				<img src="<?php echo esc_url( EA_URI . '/assets/img/templates.jpg' ); ?>"
-					 alt="Premium Templates"></div>
+						alt="Premium Templates"></div>
 		</div>
 
 		<?php
 		$current_theme = wp_get_theme();
 		$theme_name    = $current_theme->get( 'TextDomain' );
-		if ( $theme_name !== 'neve' ) {
+		$template      = $current_theme->get( 'Template' );
+		if ( $theme_name !== 'neve' && $template !== 'neve' ) {
 			?>
 			<div class="theme-promotions">
 				<?php
@@ -37,5 +40,5 @@
 		}
 		?>
 
-		
-</div>
+
+	</div>

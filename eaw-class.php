@@ -8,22 +8,6 @@ class Elementor_Addon_Widgets {
 	private static $instance;
 
 	/**
-	 * Returns an instance of this class.
-	 */
-	public static function get_instance() {
-
-		if ( null == self::$instance ) {
-			self::$instance = new Elementor_Addon_Widgets();
-		}
-
-		return self::$instance;
-	}
-
-	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'elementor-addon-widgets' );
-	}
-
-	/**
 	 * Initializes the plugin by setting filters and administration functions.
 	 */
 	private function __construct() {
@@ -35,7 +19,8 @@ class Elementor_Addon_Widgets {
 
 		$current_theme = wp_get_theme();
 		$theme_name    = $current_theme->get( 'TextDomain' );
-		if ( $theme_name !== 'neve' ) {
+		$template      = $current_theme->get( 'Template' );
+		if ( $theme_name !== 'neve' && $template !== 'neve' ) {
 			add_action( 'admin_init', array( $this, 'eaw_update_dismissed' ) );
 		}
 
@@ -52,6 +37,31 @@ class Elementor_Addon_Widgets {
 
 		// load library
 		$this->load_composer_library();
+	}
+
+	/**
+	 * Load the Composer library with the base feature
+	 */
+	public function load_composer_library() {
+		if ( defined( 'ELEMENTOR_PATH' ) && class_exists( '\ThemeIsle\ElementorExtraWidgets' ) ) {
+			\ThemeIsle\ElementorExtraWidgets::instance();
+		}
+	}
+
+	/**
+	 * Returns an instance of this class.
+	 */
+	public static function get_instance() {
+
+		if ( null == self::$instance ) {
+			self::$instance = new Elementor_Addon_Widgets();
+		}
+
+		return self::$instance;
+	}
+
+	public function load_plugin_textdomain() {
+		load_plugin_textdomain( 'elementor-addon-widgets' );
 	}
 
 	public function enqueue_scripts() {
@@ -104,6 +114,7 @@ class Elementor_Addon_Widgets {
 				'page_slug'            => 'sizzify_template_dir',
 			),
 		);
+
 		return array_merge( $products, $sizzify );
 	}
 
@@ -236,16 +247,6 @@ class Elementor_Addon_Widgets {
 		$filtered_templates = array_merge( $templates, $placeholders );
 
 		return $filtered_templates;
-	}
-
-
-	/**
-	 * Load the Composer library with the base feature
-	 */
-	public function load_composer_library() {
-		if ( defined( 'ELEMENTOR_PATH' ) && class_exists( '\ThemeIsle\ElementorExtraWidgets' ) ) {
-			\ThemeIsle\ElementorExtraWidgets::instance();
-		}
 	}
 
 	/**
