@@ -23,10 +23,19 @@
 					 alt="Premium Templates"></div>
 		</div>
 
-		<div class="theme-promotions">
-			<?php
-			Elementor_Addon_Widgets::get_instance()->show_theme_promotion();
+		<?php
+		$current_theme = wp_get_theme();
+		$theme_name    = $current_theme->get( 'TextDomain' );
+		if ( $theme_name !== 'neve' ) {
 			?>
-		</div>
+			<div class="theme-promotions">
+				<?php
+				Elementor_Addon_Widgets::get_instance()->show_theme_promotion();
+				?>
+			</div>
+			<?php
+		}
+		?>
+
 		
 </div>
