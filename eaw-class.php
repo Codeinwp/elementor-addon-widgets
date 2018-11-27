@@ -33,7 +33,12 @@ class Elementor_Addon_Widgets {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		add_action( 'admin_init', array( $this, 'eaw_update_dismissed' ) );
+
+		$current_theme = wp_get_theme();
+		$theme_name    = $current_theme->get( 'TextDomain' );
+		if ( $theme_name !== 'neve' ) {
+			add_action( 'admin_init', array( $this, 'eaw_update_dismissed' ) );
+		}
 
 		add_filter( 'admin_menu', array( $this, 'admin_pages' ) );
 
