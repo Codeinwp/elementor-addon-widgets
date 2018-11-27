@@ -61,6 +61,14 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 == Changelog ==
+= 1.2.6 - 2018-11-12  = 
+
+* Fix issue with elementor content forms php notice
+* Security fixes
+* Performance enhancements
+* Add notice to awesome Neve theme
+
+
 = 1.2.5 - 2018-07-26  = 
 
 * Development
