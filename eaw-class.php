@@ -8,22 +8,6 @@ class Elementor_Addon_Widgets {
 	private static $instance;
 
 	/**
-	 * Returns an instance of this class.
-	 */
-	public static function get_instance() {
-
-		if ( null == self::$instance ) {
-			self::$instance = new Elementor_Addon_Widgets();
-		}
-
-		return self::$instance;
-	}
-
-	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'elementor-addon-widgets' );
-	}
-
-	/**
 	 * Initializes the plugin by setting filters and administration functions.
 	 */
 	private function __construct() {
@@ -33,7 +17,12 @@ class Elementor_Addon_Widgets {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		add_action( 'admin_init', array( $this, 'eaw_update_dismissed' ) );
+		$current_theme = wp_get_theme();
+		$theme_name    = $current_theme->get( 'TextDomain' );
+		$template      = $current_theme->get( 'Template' );
+		if ( $theme_name !== 'neve' && $template !== 'neve' ) {
+			add_action( 'admin_init', array( $this, 'eaw_update_dismissed' ) );
+		}
 
 		add_filter( 'admin_menu', array( $this, 'admin_pages' ) );
 
@@ -50,6 +39,31 @@ class Elementor_Addon_Widgets {
 		$this->load_composer_library();
 	}
 
+	/**
+	 * Load the Composer library with the base feature
+	 */
+	public function load_composer_library() {
+		if ( defined( 'ELEMENTOR_PATH' ) && class_exists( '\ThemeIsle\ElementorExtraWidgets' ) ) {
+			\ThemeIsle\ElementorExtraWidgets::instance();
+		}
+	}
+
+	/**
+	 * Returns an instance of this class.
+	 */
+	public static function get_instance() {
+
+		if ( null == self::$instance ) {
+			self::$instance = new Elementor_Addon_Widgets();
+		}
+
+		return self::$instance;
+	}
+
+	public function load_plugin_textdomain() {
+		load_plugin_textdomain( 'elementor-addon-widgets' );
+	}
+
 	public function enqueue_scripts() {
 		$current_screen = get_current_screen();
 		if ( $current_screen->id === 'sizzify_page_sizzify_more_features' || $current_screen->id === 'toplevel_page_sizzify-admin' ) {
@@ -58,7 +72,7 @@ class Elementor_Addon_Widgets {
 	}
 
 	/**
-	 * Shows theme promotion box for Neve after 3rd of December only if the box is not dismissed yet
+	 * Shows theme promotion box for Neve.
 	 */
 	public function show_theme_promotion() {
 
@@ -71,11 +85,11 @@ class Elementor_Addon_Widgets {
 		}
 
 		echo '<div class="pro-feature theme-promote">
-			<div class="pro-feature-dismiss"><a href="' . admin_url( 'admin.php?page=sizzify-admin&sizzify_ignore_notice=0' ) . '"><span class="dashicons dashicons-dismiss"></span></a></div>
+			<div class="pro-feature-dismiss"><a href="' . esc_url( admin_url( 'admin.php?page=sizzify-admin&sizzify_ignore_notice=0' ) ) . '"><span class="dashicons dashicons-dismiss"></span></a></div>
 			<div class="pro-feature-features">
 				<h2>Suggested theme</h2>
 				<p>Do you enjoy working with Elementor? Check out Neve, our new FREE multipurpose theme. It\' s simple, fast and fully compatible with both Elementor and Gutenberg. We recommend to try it out together with Sizzify Lite.</p>
-				<a target="_blank" href="https://themeisle.com/demo/?theme=Neve" class="install-now">
+				<a target="_blank" href="' . esc_url( admin_url( 'theme-install.php?theme=neve' ) ) . '" class="install-now">
 				<span class="dashicons dashicons-admin-appearance"></span> Install Neve</a>
 			</div>
 			<div class="pro-feature-image">
@@ -100,6 +114,7 @@ class Elementor_Addon_Widgets {
 				'page_slug'            => 'sizzify_template_dir',
 			),
 		);
+
 		return array_merge( $products, $sizzify );
 	}
 
@@ -232,16 +247,6 @@ class Elementor_Addon_Widgets {
 		$filtered_templates = array_merge( $templates, $placeholders );
 
 		return $filtered_templates;
-	}
-
-
-	/**
-	 * Load the Composer library with the base feature
-	 */
-	public function load_composer_library() {
-		if ( defined( 'ELEMENTOR_PATH' ) && class_exists( '\ThemeIsle\ElementorExtraWidgets' ) ) {
-			\ThemeIsle\ElementorExtraWidgets::instance();
-		}
 	}
 
 	/**
