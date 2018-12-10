@@ -61,6 +61,11 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 == Changelog ==
+= 1.2.8 - 2018-12-10  = 
+
+* Tested with WP 5.0
+
+
 = 1.2.7 - 2018-11-27  = 
 
 * Update recommended theme link
