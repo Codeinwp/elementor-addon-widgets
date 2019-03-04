@@ -31,6 +31,8 @@ define( 'EA_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 /* Set the constant path to the plugin directory URI. */
 define( 'EA_URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 
+define( 'EA_PLUGIN_NAME', 'elementor_addon_widgets' );
+
 define( 'SIZZIFY_UPSELL_LINK', 'https://themeisle.com/plugins/sizzify-elementor-addons-templates' );
 
 
@@ -108,3 +110,12 @@ function elementor_addon_widgets_uninstall() {
 	}
 }
 register_uninstall_hook( __FILE__, 'elementor_addon_widgets_uninstall' );
+
+
+add_filter( EA_PLUGIN_NAME . '_enqueue_upsell', 'elementor_addon_widgets_upsell_plugins', 10, 2 );
+/**
+ * Validates the correct screen on which the assets for upsell should be loaded.
+ */
+function elementor_addon_widgets_upsell_plugins( $return, $screen_id ) {
+	return $screen_id === 'toplevel_page_sizzify-admin';
+}

@@ -108,6 +108,47 @@ class Elementor_Addon_Widgets {
 			</div>';
 	}
 
+
+	/**
+	 * Shows upsell plugin box.
+	 */
+	public function show_upsell_plugins( $list, $strings, $preferences ) {
+		foreach ( $list as $item ) {
+			echo '<div class="pro-feature theme-promote">
+				<div class="pro-feature-features">
+					<h2>' . $item->custom_name . '</h2>
+					<p>' . esc_html( $item->short_description ) . '</p>
+					<a class="thickbox open-plugin-details-modal install-now" href="' . esc_url( $item->custom_url ) . '"><span class="dashicons dashicons-admin-appearance"></span>' . esc_html( $strings['install'] ) . '</a>
+				</div>
+				<div class="pro-feature-image">
+					<img src="' . $item->custom_image . '">
+				</div>
+				</div>';
+		}
+	}
+
+	/**
+	 * Shows upsell theme box.
+	 */
+	public function show_upsell_themes( $list, $strings, $preferences ) {
+		// for some reason the array becomes an object, so we have to force it back into an array.
+		if ( ! is_array( $list ) ) {
+			$list = array( $list );
+		}
+		foreach ( $list as $item ) {
+			echo '<div class="pro-feature theme-promote">
+				<div class="pro-feature-features">
+					<h2>' . $item->custom_name . '</h2>
+					<p>' . esc_html( $item->description ) . '</p>
+					<a class="thickbox open-plugin-details-modal install-now" href="' . esc_url( $item->custom_url ) . '"><span class="dashicons dashicons-admin-appearance"></span>' . esc_html( $strings['install'] ) . '</a>
+				</div>
+				<div class="pro-feature-image">
+					<img src="' . $item->screenshot_url . '">
+				</div>
+				</div>';
+		}
+	}
+
 	public function eaw_update_dismissed() {
 		global $current_user;
 		$user_id = $current_user->ID;
@@ -162,10 +203,6 @@ class Elementor_Addon_Widgets {
 
 	public function render_main_page() {
 		include_once EA_PATH . 'admin/partials/main.php';
-	}
-
-	public function render_upsell() {
-		include_once EA_PATH . 'admin/partials/upsell.php';
 	}
 
 	/**

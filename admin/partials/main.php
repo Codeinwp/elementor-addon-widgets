@@ -42,3 +42,20 @@
 
 
 	</div>
+
+
+<?php
+		add_action( EA_PLUGIN_NAME . '_upsell_products_plugin_template', array( Elementor_Addon_Widgets::get_instance(), 'show_upsell_plugins' ), 10, 3 );
+		add_action( EA_PLUGIN_NAME . '_upsell_products_theme_template', array( Elementor_Addon_Widgets::get_instance(), 'show_upsell_themes' ), 10, 3 );
+
+		do_action(
+			EA_PLUGIN_NAME . '_upsell_products',
+            array(
+				'otter-blocks' => 'Gutenberg Blocks',
+				'visualizer' => 'Visualizer',
+			),
+            array( 'neve' => 'Neve'),
+            array( 'install' => __( 'Install', 'elementor-addon-widgets' ) ),
+            array()
+		);
+?>
