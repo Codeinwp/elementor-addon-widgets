@@ -158,20 +158,6 @@ class Elementor_Addon_Widgets {
 			'76'
 		);
 		remove_submenu_page( 'sizzify-admin', 'sizzify-admin' );
-		if ( ! defined( 'EAW_PRO_URL' ) ) {
-			add_submenu_page(
-				'sizzify-admin',
-				__( 'Sizzify', 'elementor-addon-widgets' ),
-				__( 'More Features', 'elementor-addon-widgets' ) . '<span class="dashicons 
-		dashicons-star-filled more-features-icon" style="width: 17px;height: 17px; margin-left: 4px; color: #ffca54;font-size: 17px;vertical-align: -3px;"></span>',
-				'manage_options',
-				'sizzify_more_features',
-				array(
-					$this,
-					'render_upsell',
-				)
-			);
-		}
 	}
 
 	public function render_main_page() {
