@@ -29,7 +29,10 @@ class Elementor_Addon_Widgets {
 		add_filter( 'elementor_extra_widgets_category_args', array( $this, 'filter_category_args' ) );
 		add_filter( 'content_forms_category_args', array( $this, 'filter_category_args' ) );
 
-		add_filter( 'template_directory_templates_list', array( $this, 'filter_templates_preview' ) );
+		if ( defined( 'EAW_PRO_VERSION' ) ) {
+			add_filter( 'template_directory_templates_list', array( $this, 'filter_templates_preview' ) );
+		}
+
 		add_filter( 'eaw_should_load_placeholders', array( $this, 'show_placeholder_widgets' ) );
 
 		add_filter( 'obfx_template_dir_products', array( $this, 'add_page' ) );
