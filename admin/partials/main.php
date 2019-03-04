@@ -50,12 +50,12 @@
 
 		do_action(
 			EA_PLUGIN_NAME . '_upsell_products',
-            array(
+			array(
 				'otter-blocks' => 'Gutenberg Blocks',
 				'visualizer' => 'Visualizer',
 			),
-            array( 'neve' => 'Neve'),
-            array( 'install' => __( 'Install', 'elementor-addon-widgets' ) ),
-            array()
+			array( 'neve' => 'Neve' ),
+			array( 'install' => __( 'Install', 'elementor-addon-widgets' ) ),
+			array()
 		);
-?>
+		?>
