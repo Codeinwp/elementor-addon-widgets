@@ -52,7 +52,7 @@
 			EA_PLUGIN_NAME . '_upsell_products',
 			array(
 				'otter-blocks' => 'Gutenberg Blocks',
-				'visualizer' => 'Visualizer',
+				'visualizer'   => 'Visualizer',
 			),
 			array( 'neve' => 'Neve' ),
 			array( 'install' => __( 'Install', 'elementor-addon-widgets' ) ),
