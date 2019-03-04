@@ -30,13 +30,20 @@ class Elementor_Addon_Widgets {
 		add_filter( 'content_forms_category_args', array( $this, 'filter_category_args' ) );
 
 		add_filter( 'template_directory_templates_list', array( $this, 'filter_templates_preview' ) );
-		add_filter( 'eaw_should_load_placeholders', '__return_true' );
+		add_filter( 'eaw_should_load_placeholders', array( $this, 'show_placeholders_for_free' ) );
 
 		add_filter( 'obfx_template_dir_products', array( $this, 'add_page' ) );
 		add_filter( 'obfx_template_dir_page_title', array( $this, 'page_title' ) );
 
 		// load library
 		$this->load_composer_library();
+	}
+
+	/**
+	 * Should we show the placeholder widget? Only when PRO exists!
+	 */
+	function show_placeholders_for_free() {
+		return defined( 'EAW_PRO_VERSION' );
 	}
 
 	/**
