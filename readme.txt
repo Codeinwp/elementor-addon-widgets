@@ -2,7 +2,7 @@
 Contributors: themeisle, codeinwp
 Tags: elementor, elementor addons, page builder template, page builder templates, woocommerce, template builder, builder templates
 Requires at least: 4.4  
-Tested up to: 5.0
+Tested up to: 5.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html   
 

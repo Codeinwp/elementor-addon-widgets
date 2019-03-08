@@ -113,6 +113,7 @@ class Elementor_Addon_Widgets {
 	 * Shows upsell plugin box.
 	 */
 	public function show_upsell_plugins( $list, $strings, $preferences ) {
+
 		foreach ( $list as $item ) {
 			echo '<div class="pro-feature theme-promote">
 				<div class="pro-feature-features">

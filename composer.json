@@ -13,8 +13,13 @@
   "require": {
     "codeinwp/elementor-extra-widgets": "master",
     "codeinwp/themeisle-content-forms": "master",
-    "codeinwp/themeisle-sdk": "master",
-    "codeinwp/templates-directory": "master"
+    "codeinwp/templates-directory": "master",
+    "codeinwp/themeisle-sdk": "^3.0"
+  },
+  "autoload": {
+    "files": [
+      "vendor/codeinwp/themeisle-sdk/load.php"
+    ]
   },
   "minimum-stability": "dev",
   "prefer-stable": true

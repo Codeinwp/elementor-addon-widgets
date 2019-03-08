@@ -259,3 +259,10 @@
 		text-align: center;
 	}
 }
+#siz-setting-footer{
+	margin-top:10px;
+}
+#siz-setting-footer .plugin_box{
+	width:32%;
+
+}
