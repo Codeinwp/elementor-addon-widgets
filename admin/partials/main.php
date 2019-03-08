@@ -53,7 +53,7 @@
 				'visualizer'   => 'Visualizer',
 			),
 			[],
-			array( 'install' => __( 'More details', 'intergeo-maps' ) ),
+			array( 'install' => __( 'More details', 'elementor-addon-widget' ) ),
 			array( 'image' => 'icon' )
 		);
 		?>
