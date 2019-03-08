@@ -1,4 +1,9 @@
 
+ ### v1.3.0 - 2019-03-08 
+ **Changes:** 
+ * Tested with latest WordPress version, 5.1
+* Remove mention of Pro add-on, discontinue recommendation of the Premium features
+ 
  ### v1.2.9 - 2018-12-12 
  **Changes:** 
  * fix templates directory importing
