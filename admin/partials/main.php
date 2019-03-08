@@ -53,7 +53,7 @@
 				'visualizer'   => 'Visualizer',
 			),
 			[],
-			array( 'install' => __( 'More details', 'elementor-addon-widget' ) ),
+			array( 'install' => __( 'More details', 'elementor-addon-widgets' ) ),
 			array( 'image' => 'icon' )
 		);
 		?>
