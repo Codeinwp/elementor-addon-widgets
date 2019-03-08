@@ -29,14 +29,24 @@ class Elementor_Addon_Widgets {
 		add_filter( 'elementor_extra_widgets_category_args', array( $this, 'filter_category_args' ) );
 		add_filter( 'content_forms_category_args', array( $this, 'filter_category_args' ) );
 
-		add_filter( 'template_directory_templates_list', array( $this, 'filter_templates_preview' ) );
-		add_filter( 'eaw_should_load_placeholders', '__return_true' );
+		if ( defined( 'EAW_PRO_VERSION' ) ) {
+			add_filter( 'template_directory_templates_list', array( $this, 'filter_templates_preview' ) );
+		}
+
+		add_filter( 'eaw_should_load_placeholders', array( $this, 'show_placeholder_widgets' ) );
 
 		add_filter( 'obfx_template_dir_products', array( $this, 'add_page' ) );
 		add_filter( 'obfx_template_dir_page_title', array( $this, 'page_title' ) );
 
 		// load library
 		$this->load_composer_library();
+	}
+
+	/**
+	 * Should we show the placeholder widget? Only when PRO exists!
+	 */
+	function show_placeholder_widgets() {
+		return defined( 'EAW_PRO_VERSION' );
 	}
 
 	/**
@@ -98,6 +108,47 @@ class Elementor_Addon_Widgets {
 			</div>';
 	}
 
+
+	/**
+	 * Shows upsell plugin box.
+	 */
+	public function show_upsell_plugins( $list, $strings, $preferences ) {
+		foreach ( $list as $item ) {
+			echo '<div class="pro-feature theme-promote">
+				<div class="pro-feature-features">
+					<h2>' . $item->custom_name . '</h2>
+					<p>' . esc_html( $item->short_description ) . '</p>
+					<a class="thickbox open-plugin-details-modal install-now" href="' . esc_url( $item->custom_url ) . '"><span class="dashicons dashicons-admin-appearance"></span>' . esc_html( $strings['install'] ) . '</a>
+				</div>
+				<div class="pro-feature-image">
+					<img src="' . $item->custom_image . '">
+				</div>
+				</div>';
+		}
+	}
+
+	/**
+	 * Shows upsell theme box.
+	 */
+	public function show_upsell_themes( $list, $strings, $preferences ) {
+		// for some reason the array becomes an object, so we have to force it back into an array.
+		if ( ! is_array( $list ) ) {
+			$list = array( $list );
+		}
+		foreach ( $list as $item ) {
+			echo '<div class="pro-feature theme-promote">
+				<div class="pro-feature-features">
+					<h2>' . $item->custom_name . '</h2>
+					<p>' . esc_html( $item->description ) . '</p>
+					<a class="thickbox open-plugin-details-modal install-now" href="' . esc_url( $item->custom_url ) . '"><span class="dashicons dashicons-admin-appearance"></span>' . esc_html( $strings['install'] ) . '</a>
+				</div>
+				<div class="pro-feature-image">
+					<img src="' . $item->screenshot_url . '">
+				</div>
+				</div>';
+		}
+	}
+
 	public function eaw_update_dismissed() {
 		global $current_user;
 		$user_id = $current_user->ID;
@@ -148,28 +199,10 @@ class Elementor_Addon_Widgets {
 			'76'
 		);
 		remove_submenu_page( 'sizzify-admin', 'sizzify-admin' );
-		if ( ! defined( 'EAW_PRO_URL' ) ) {
-			add_submenu_page(
-				'sizzify-admin',
-				__( 'Sizzify', 'elementor-addon-widgets' ),
-				__( 'More Features', 'elementor-addon-widgets' ) . '<span class="dashicons 
-		dashicons-star-filled more-features-icon" style="width: 17px;height: 17px; margin-left: 4px; color: #ffca54;font-size: 17px;vertical-align: -3px;"></span>',
-				'manage_options',
-				'sizzify_more_features',
-				array(
-					$this,
-					'render_upsell',
-				)
-			);
-		}
 	}
 
 	public function render_main_page() {
 		include_once EA_PATH . 'admin/partials/main.php';
-	}
-
-	public function render_upsell() {
-		include_once EA_PATH . 'admin/partials/upsell.php';
 	}
 
 	/**
