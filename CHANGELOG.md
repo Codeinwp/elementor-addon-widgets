@@ -1,4 +1,8 @@
 
+ ### v1.2.9 - 2018-12-12 
+ **Changes:** 
+ * fix templates directory importing
+ 
  ### v1.2.8 - 2018-12-10 
  **Changes:** 
  * Tested with WP 5.0
