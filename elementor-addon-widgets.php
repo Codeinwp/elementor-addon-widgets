@@ -3,7 +3,7 @@
  * Plugin Name: Elementor Addons & Templates - Sizzify Lite
  * Plugin URI: https://themeisle.com/
  * Description: Adds new Addons & Widgets that are specifically designed to be used in conjunction with the Elementor Page Builder.
- * Version: 1.2.9
+ * Version: 1.3.0
  * Author: ThemeIsle
  * Author URI: https://themeisle.com/
  * Requires at least:   4.4
@@ -23,13 +23,15 @@ Constants
 ------------------------------------------ */
 
 /* Set plugin version constant. */
-define( 'EA_VERSION', '1.2.9' );
+define( 'EA_VERSION', '1.3.0' );
 
 /* Set constant path to the plugin directory. */
 define( 'EA_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 /* Set the constant path to the plugin directory URI. */
 define( 'EA_URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
+
+define( 'EA_PLUGIN_NAME', 'elementor_addon_widgets' );
 
 define( 'SIZZIFY_UPSELL_LINK', 'https://themeisle.com/plugins/sizzify-elementor-addons-templates' );
 
@@ -77,6 +79,7 @@ function eaw_do_shortcode( $tag, array $atts = array(), $content = null ) {
 $vendor_file = plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 if ( is_readable( $vendor_file ) ) {
 	require_once $vendor_file;
+
 }
 
 /**
@@ -108,3 +111,12 @@ function elementor_addon_widgets_uninstall() {
 	}
 }
 register_uninstall_hook( __FILE__, 'elementor_addon_widgets_uninstall' );
+
+
+add_filter( EA_PLUGIN_NAME . '_enqueue_recommend', 'elementor_addon_widgets_upsell_plugins', 10, 2 );
+/**
+ * Validates the correct screen on which the assets for upsell should be loaded.
+ */
+function elementor_addon_widgets_upsell_plugins( $return, $screen_id ) {
+	return $screen_id === 'toplevel_page_sizzify-admin';
+}

@@ -10,7 +10,6 @@
 					href="https://themeisle.com/">ThemeIsle</a></span>
 	</div><!-- .pro-features-header -->
 
-
 	<div class="pro-features-content">
 
 		<div class="pro-feature">
@@ -22,7 +21,7 @@
 			</div>
 			<div class="pro-feature-image">
 				<img src="<?php echo esc_url( EA_URI . '/assets/img/templates.jpg' ); ?>"
-						alt="Premium Templates"></div>
+					 alt="Premium Templates"></div>
 		</div>
 
 		<?php
@@ -40,5 +39,22 @@
 		}
 		?>
 
-
 	</div>
+	<div class="clear"></div>
+	<h3><span class="dashicons dashicons-welcome-learn-more"></span> Sizzify  Recommends</h3>
+	<footer id="siz-setting-footer">
+		<?php
+
+		do_action(
+			EA_PLUGIN_NAME . '_recommend_products',
+			array(
+				'otter-blocks' => 'Otter',
+				'optimole-wp'  => 'OptiMole',
+				'visualizer'   => 'Visualizer',
+			),
+			[],
+			array( 'install' => __( 'More details', 'elementor-addon-widgets' ) ),
+			array( 'image' => 'icon' )
+		);
+		?>
+		 </footer>
