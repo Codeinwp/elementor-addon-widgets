@@ -2,7 +2,7 @@
 **Contributors:** [themeisle](https://profiles.wordpress.org/themeisle), [codeinwp](https://profiles.wordpress.org/codeinwp)  
 **Tags:** elementor, elementor addons, page builder template, page builder templates, woocommerce, template builder, builder templates  
 **Requires at least:** 4.4    
-**Tested up to:** 5.0  
+**Tested up to:** 5.1  
 **License:** GPLv3  
 **License URI:** https://www.gnu.org/licenses/gpl-3.0.html     
 
@@ -61,6 +61,12 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 ## Changelog ##
+### 1.3.0 - 2019-03-08  ###
+
+* Tested with latest WordPress version, 5.1
+* Remove mention of Pro add-on, discontinue recommendation of the Premium features
+
+
 ### 1.2.9 - 2018-12-12  ###
 
 * fix templates directory importing
