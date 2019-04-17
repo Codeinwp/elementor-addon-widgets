@@ -63,7 +63,7 @@ class Elementor_Addon_Widgets {
 	 */
 	public static function get_instance() {
 
-		if ( null == self::$instance ) {
+		if ( null === self::$instance ) {
 			self::$instance = new Elementor_Addon_Widgets();
 		}
 
