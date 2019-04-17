@@ -1,4 +1,8 @@
 
+ ### v1.3.1 - 2019-04-17 
+ **Changes:** 
+ * Fix issues with newsletter form
+ 
  ### v1.3.0 - 2019-03-08 
  **Changes:** 
  * Tested with latest WordPress version, 5.1

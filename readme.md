@@ -61,6 +61,11 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 ## Changelog ##
+### 1.3.1 - 2019-04-17  ###
+
+* Fix issues with newsletter form
+
+
 ### 1.3.0 - 2019-03-08  ###
 
 * Tested with latest WordPress version, 5.1
