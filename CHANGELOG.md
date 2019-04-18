@@ -1,4 +1,8 @@
 
+ ### v1.3.2 - 2019-04-18 
+ **Changes:** 
+ * fix: PHP notice in themeisle-content-forms
+ 
  ### v1.3.1 - 2019-04-17 
  **Changes:** 
  * Fix issues with newsletter form

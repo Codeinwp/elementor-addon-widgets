@@ -61,6 +61,11 @@ See this [issue #495](https://github.com/pojome/elementor/issues/495) for curren
 4. Frontend view posts with custom title.
 
 ## Changelog ##
+### 1.3.2 - 2019-04-18  ###
+
+* fix: PHP notice in themeisle-content-forms
+
+
 ### 1.3.1 - 2019-04-17  ###
 
 * Fix issues with newsletter form
